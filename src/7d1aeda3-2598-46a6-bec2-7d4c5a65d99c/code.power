@@ -1,0 +1,26 @@
+	/**
+	 * Registers the service provider with a DI container.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  void
+	 * @since 3.2.0
+	 */
+	public function register(Container $container)
+	{
+		$container->alias(Details::class, 'Display.Details')
+			->share('Display.Details', [$this, 'getDetails'], true);
+	}
+
+	/**
+	 * Get the Display Details
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  Details
+	 * @since 3.2.0
+	 */
+	public function getDetails(Container $container): Details
+	{
+		return new Details();
+	}

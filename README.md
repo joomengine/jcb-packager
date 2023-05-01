@@ -25,18 +25,18 @@ This repository contains an index (see below) of all the approved powers within 
 
 - **Namespace**: [VDM\Joomla\Componentbuilder\Package](#vdm-joomla-componentbuilder-package)
 
-  - **abstract class Factory** | [Details](src/ec804df5-a384-48d7-b709-ae091ddc328a) | [Code](src/ec804df5-a384-48d7-b709-ae091ddc328a/code.php) | [Settings](src/ec804df5-a384-48d7-b709-ae091ddc328a/settings.json) | Factory
+  - **abstract class Factory** | [Details](src/ec804df5-a384-48d7-b709-ae091ddc328a) | [Code](src/ec804df5-a384-48d7-b709-ae091ddc328a/code.php) | [Settings](src/ec804df5-a384-48d7-b709-ae091ddc328a/settings.json) | Super__ec804df5_a384_48d7_b709_ae091ddc328a__Power
 - **Namespace**: [VDM\Joomla\Componentbuilder\Package\Database](#vdm-joomla-componentbuilder-package-database)
 
-  - **class Insert** | [Details](src/f68aafc4-beec-4bf0-b528-4e2c525f5b7b) | [Code](src/f68aafc4-beec-4bf0-b528-4e2c525f5b7b/code.php) | [Settings](src/f68aafc4-beec-4bf0-b528-4e2c525f5b7b/settings.json) | Insert
-  - **class Load** | [Details](src/12234620-f54f-4914-a51a-24f5707cb8a6) | [Code](src/12234620-f54f-4914-a51a-24f5707cb8a6/code.php) | [Settings](src/12234620-f54f-4914-a51a-24f5707cb8a6/settings.json) | Load
+  - **class Insert** | [Details](src/f68aafc4-beec-4bf0-b528-4e2c525f5b7b) | [Code](src/f68aafc4-beec-4bf0-b528-4e2c525f5b7b/code.php) | [Settings](src/f68aafc4-beec-4bf0-b528-4e2c525f5b7b/settings.json) | Super__f68aafc4_beec_4bf0_b528_4e2c525f5b7b__Power
+  - **class Load** | [Details](src/12234620-f54f-4914-a51a-24f5707cb8a6) | [Code](src/12234620-f54f-4914-a51a-24f5707cb8a6/code.php) | [Settings](src/12234620-f54f-4914-a51a-24f5707cb8a6/settings.json) | Super__12234620_f54f_4914_a51a_24f5707cb8a6__Power
 - **Namespace**: [VDM\Joomla\Componentbuilder\Package\Display](#vdm-joomla-componentbuilder-package-display)
 
-  - **class Details** | [Details](src/2e64007d-acac-438c-b719-3e1875784f47) | [Code](src/2e64007d-acac-438c-b719-3e1875784f47/code.php) | [Settings](src/2e64007d-acac-438c-b719-3e1875784f47/settings.json) | Details
+  - **class Details** | [Details](src/2e64007d-acac-438c-b719-3e1875784f47) | [Code](src/2e64007d-acac-438c-b719-3e1875784f47/code.php) | [Settings](src/2e64007d-acac-438c-b719-3e1875784f47/settings.json) | Super__2e64007d_acac_438c_b719_3e1875784f47__Power
 - **Namespace**: [VDM\Joomla\Componentbuilder\Package\Service](#vdm-joomla-componentbuilder-package-service)
 
-  - **class Database** | [Details](src/97c8b20c-a35d-47e7-b801-b9c54443e876) | [Code](src/97c8b20c-a35d-47e7-b801-b9c54443e876/code.php) | [Settings](src/97c8b20c-a35d-47e7-b801-b9c54443e876/settings.json) | Database
-  - **class Display** | [Details](src/7d1aeda3-2598-46a6-bec2-7d4c5a65d99c) | [Code](src/7d1aeda3-2598-46a6-bec2-7d4c5a65d99c/code.php) | [Settings](src/7d1aeda3-2598-46a6-bec2-7d4c5a65d99c/settings.json) | Display
+  - **class Database** | [Details](src/97c8b20c-a35d-47e7-b801-b9c54443e876) | [Code](src/97c8b20c-a35d-47e7-b801-b9c54443e876/code.php) | [Settings](src/97c8b20c-a35d-47e7-b801-b9c54443e876/settings.json) | Super__97c8b20c_a35d_47e7_b801_b9c54443e876__Power
+  - **class Display** | [Details](src/7d1aeda3-2598-46a6-bec2-7d4c5a65d99c) | [Code](src/7d1aeda3-2598-46a6-bec2-7d4c5a65d99c/code.php) | [Settings](src/7d1aeda3-2598-46a6-bec2-7d4c5a65d99c/settings.json) | Super__7d1aeda3_2598_46a6_bec2_7d4c5a65d99c__Power
 
 # Class Diagrams
 

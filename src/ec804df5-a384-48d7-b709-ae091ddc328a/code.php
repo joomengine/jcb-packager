@@ -13,11 +13,11 @@ namespace VDM\Joomla\Componentbuilder\Package;
 
 
 use Joomla\DI\Container;
-use VDM\Joomla\Componentbuilder\Service\Crypt;
+use VastDevelopmentMethod\Joomla\Componentbuilder\Service\Crypt;
 use VDM\Joomla\Componentbuilder\Package\Service\Database;
-use VDM\Joomla\Componentbuilder\Service\Server;
+use VastDevelopmentMethod\Joomla\Componentbuilder\Service\Server;
 use VDM\Joomla\Componentbuilder\Package\Service\Display;
-use VDM\Joomla\Interfaces\FactoryInterface;
+use VastDevelopmentMethod\Joomla\Interfaces\FactoryInterface;
 
 
 /**

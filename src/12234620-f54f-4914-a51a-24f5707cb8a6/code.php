@@ -13,8 +13,8 @@ namespace VDM\Joomla\Componentbuilder\Package\Database;
 
 
 use VDM\Joomla\Componentbuilder\Package\Factory;
-use VastDevelopmentMethod\Joomla\Componentbuilder\Table;
-use VastDevelopmentMethod\Joomla\Database\Load as Database;
+use VDM\Joomla\Componentbuilder\Table;
+use VDM\Joomla\Database\Load as Database;
 
 
 /**

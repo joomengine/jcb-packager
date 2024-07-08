@@ -11,8 +11,8 @@ namespace VDM\Joomla\Componentbuilder\Package\Display;
 
 
 use Joomla\CMS\Language\Text;
-use VastDevelopmentMethod\Joomla\Utilities\StringHelper;
-use VastDevelopmentMethod\Joomla\Utilities\ArrayHelper;
+use VDM\Joomla\Utilities\StringHelper;
+use VDM\Joomla\Utilities\ArrayHelper;
 
 
 /**

@@ -8,6 +8,7 @@
 ```
 # class Insert (Details)
 > namespace: **VDM\Joomla\Componentbuilder\Package\Database**
+> extends: ****
 ```uml
 @startuml
 class Insert  #Gold {

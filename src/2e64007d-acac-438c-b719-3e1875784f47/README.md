@@ -8,6 +8,7 @@
 ```
 # class Details (Details)
 > namespace: **VDM\Joomla\Componentbuilder\Package\Display**
+> extends: ****
 ```uml
 @startuml
 class Details  #Gold {

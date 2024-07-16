@@ -20,7 +20,7 @@
         }
     },
     "extendsinterfaces": null,
-    "namespace": "VDM\\Joomla\\Componentbuilder.Package.Display.Details",
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Display.Details",
     "description": "Package Display Details Class\r\n\r\n@since 3.2.0",
     "licensing_template": "\/**\r\n * @package    FrameworkOnFramework\r\n * @subpackage encrypt\r\n * @copyright   Copyright (C) 2010-2016 Nicholas K. Dionysopoulos \/ Akeeba Ltd. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n * @note\tThis file has been modified by the Joomla! Project and no longer reflects the original work of its author.\r\n *\/\r\n",
     "head": "use Joomla\\CMS\\Language\\Text;",

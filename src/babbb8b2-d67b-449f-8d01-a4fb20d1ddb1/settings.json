@@ -1,0 +1,50 @@
+{
+    "add_head": 0,
+    "add_licensing_template": 2,
+    "extends": "f1ba7387-0e93-489d-934f-530caf3bdc83",
+    "guid": "babbb8b2-d67b-449f-8d01-a4fb20d1ddb1",
+    "implements": [
+        "e335dd61-c2f9-4536-8ed9-aec5edee0b26"
+    ],
+    "load_selection": null,
+    "name": "Set",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Package.Remote.CustomCode.Set",
+    "type": "final class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "008d111c-9d43-427c-8dd4-2653e8b74be8",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "61dfeb6a-2e26-44a7-87f8-68b7b09f94a0",
+            "as": "Config"
+        },
+        "use_selection2": {
+            "use": "c182506a-ab84-439c-b962-1e606b58d545",
+            "as": "Grep"
+        },
+        "use_selection3": {
+            "use": "7212e4db-371f-4cfd-8122-32e9bb100d83",
+            "as": "Items"
+        },
+        "use_selection4": {
+            "use": "65a0f81a-14fc-4870-9382-b8d830b19937",
+            "as": "ItemReadme"
+        },
+        "use_selection5": {
+            "use": "217416f6-24cf-41c0-b18e-11086111d447",
+            "as": "MainReadme"
+        },
+        "use_selection6": {
+            "use": "d1de5d5b-bf29-4031-8094-76c4f6c75900",
+            "as": "Git"
+        }
+    },
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Remote.CustomCode.Set",
+    "description": "Set Custom Code based on function names to remote repository\r\n\r\n@since 5.2.1",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "",
+    "composer": ""
+}

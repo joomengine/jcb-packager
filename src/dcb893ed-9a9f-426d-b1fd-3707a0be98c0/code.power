@@ -1,0 +1,7 @@
+	/**
+	 * Base switch to add values as string or array
+	 *
+	 * @var    boolean
+	 * @since 5.2.1
+	 **/
+	protected bool $addAsArray = true;

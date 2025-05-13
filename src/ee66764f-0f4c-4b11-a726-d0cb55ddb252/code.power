@@ -1,0 +1,111 @@
+	/**
+	 * The Global Joomla Configuration
+	 *
+	 * @var     JoomlaRegistry
+	 * @since  5.2.1
+	 */
+	protected JoomlaRegistry $config;
+
+	/**
+	 * Constructor
+	 *
+	 * @param Input|null        $input      Input
+	 * @param Registry|null     $params     The component parameters
+	 * @param Registry|null     $config     The Joomla configuration
+	 *
+	 * @throws \Exception
+	 * @since  5.2.1
+	 */
+	public function __construct(?Input $input = null, ?JoomlaRegistry $params = null, ?JoomlaRegistry $config = null)
+	{
+		parent::__construct($input, $params);
+
+		$this->config = $config ?: JoomlaFactory::getConfig();
+	}
+
+	/**
+	 * get Gitea Username
+	 *
+	 * @return  string  the access token
+	 * @since  5.2.1
+	 */
+	protected function getGiteausername(): ?string
+	{
+		return $this->params->get('gitea_username');
+	}
+
+	/**
+	 * get Gitea Access Token
+	 *
+	 * @return  string  the access token
+	 * @since  5.2.1
+	 */
+	protected function getGiteatoken(): ?string
+	{
+		return $this->params->get('gitea_token');
+	}
+
+	/**
+	 * Get template core organisation
+	 *
+	 * @return  string   The template core organisation
+	 * @since  5.2.1
+	 */
+	protected function getPackagecoreorganisation(): string
+	{
+		// the VDM default organisation is [joomla]
+		$organisation = 'joomla';
+
+		return $this->params->get('package_core_organisation', $organisation);
+	}
+
+	/**
+	 * Get Template init repos
+	 *
+	 * @return  array The init repositories on Gitea
+	 * @since  5.2.1
+	 */
+	protected function getPackageinitrepos(): array
+	{
+		// some defaults repos we need by JCB
+		$repos = [];
+		// get the users own power repo (can overwrite all)
+		if (!empty($this->gitea_username))
+		{
+			$repos[$this->gitea_username . '.package'] = (object) ['organisation' => $this->gitea_username, 'repository' => 'package', 'read_branch' => 'master'];
+		}
+		$repos[$this->package_core_organisation . '.package'] = (object) ['organisation' => $this->package_core_organisation, 'repository' => 'package', 'read_branch' => 'master'];
+
+		return $repos;
+	}
+
+	/**
+	 * Get joomla template approved paths
+	 *
+	 * @return  array The approved paths to the repositories on Gitea
+	 * @since  5.2.1
+	 */
+	protected function getApprovedpackagepaths(): array
+	{
+		// some defaults repos we need by JCB
+		$approved = $this->package_init_repos;
+
+		$paths = RepoHelper::get(4); // JCB Packages = 4
+
+
+		if ($paths !== null)
+		{
+			foreach ($paths as $path)
+			{
+				$owner = $path->organisation ?? null;
+				$repo = $path->repository ?? null;
+				if ($owner !== null && $repo !== null)
+				{
+					// we make sure to get only the objects
+					$approved = ["{$owner}.{$repo}" => $path] + $approved;
+				}
+			}
+		}
+
+		return array_values($approved);
+	}

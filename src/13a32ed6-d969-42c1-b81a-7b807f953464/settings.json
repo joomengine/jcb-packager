@@ -1,0 +1,21 @@
+{
+    "add_head": 0,
+    "add_licensing_template": 2,
+    "extends": "bfd1d6d5-56c1-4fe9-9fee-1c5910e1f5d8",
+    "guid": "13a32ed6-d969-42c1-b81a-7b807f953464",
+    "implements": [
+        "1a977217-0bb6-44e9-a201-6b4f8478e5b1"
+    ],
+    "load_selection": null,
+    "name": "Table",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Power.Table",
+    "type": "final class",
+    "use_selection": null,
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Power.Table",
+    "description": "Package Table\r\n\r\n@since 5.2.1",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "",
+    "composer": ""
+}

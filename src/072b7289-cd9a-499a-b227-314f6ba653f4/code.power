@@ -1,0 +1,38 @@
+	/**
+	 * Package Container
+	 *
+	 * @var   Container|null
+	 * @since 5.2.1
+	 **/
+	protected static ?Container $container = null;
+
+	/**
+	 * Create a container object
+	 *
+	 * @return  Container
+	 * @since  5.2.1
+	 */
+	protected static function createContainer(): Container
+	{
+		return (new Container())
+			->registerServiceProvider(new Component())
+			->registerServiceProvider(new AdminView())
+			->registerServiceProvider(new SiteView())
+			->registerServiceProvider(new CustomAdminView())
+			->registerServiceProvider(new CustomCode())
+			->registerServiceProvider(new DynamicGet())
+			->registerServiceProvider(new Template())
+			->registerServiceProvider(new Layout())
+			->registerServiceProvider(new Library())
+			->registerServiceProvider(new Package())
+			->registerServiceProvider(new Field())
+			->registerServiceProvider(new Database())
+			->registerServiceProvider(new Model())
+			->registerServiceProvider(new Data())
+			->registerServiceProvider(new Gitea())
+			->registerServiceProvider(new GiteaPower())
+			->registerServiceProvider(new GiteaUtilities())
+			->registerServiceProvider(new Api())
+			->registerServiceProvider(new Network())
+			->registerServiceProvider(new Utilities());
+	}

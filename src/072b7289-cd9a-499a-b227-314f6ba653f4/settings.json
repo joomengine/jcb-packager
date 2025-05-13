@@ -1,0 +1,102 @@
+{
+    "add_head": 1,
+    "add_licensing_template": 2,
+    "extends": "2e5bf608-de5c-4b00-a20d-47c26aa350d9",
+    "guid": "072b7289-cd9a-499a-b227-314f6ba653f4",
+    "implements": [
+        "caf33c5d-858c-4f9a-894f-ab302ec5445a"
+    ],
+    "load_selection": null,
+    "name": "Factory",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Package.Factory",
+    "type": "abstract class",
+    "use_selection": {
+        "use_selection19": {
+            "use": "a6e4fbb4-86ce-4e9a-905c-bf6227eb604b",
+            "as": "default"
+        },
+        "use_selection18": {
+            "use": "22ff81e2-3f0f-4049-842c-622202c8e687",
+            "as": "default"
+        },
+        "use_selection17": {
+            "use": "ed7fc3b5-fba9-4271-aea5-b873b48b6fb7",
+            "as": "default"
+        },
+        "use_selection0": {
+            "use": "1850e10c-57c6-41f0-baa6-5876b554d98d",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "ecdd9ea6-cb5b-4316-8c43-c2fee2976e06",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "f89e8379-267b-448c-bb68-c26cda31c98e",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "89ae4bf6-c0a7-4ce2-8416-96804a125fa0",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "2d3bc7e1-88d3-4318-9cb3-cb27c75e9c50",
+            "as": "default"
+        },
+        "use_selection5": {
+            "use": "283bd095-8244-437a-b1c6-474248a28140",
+            "as": "default"
+        },
+        "use_selection6": {
+            "use": "cefe8a98-82f7-4dda-8382-d811d611e2ad",
+            "as": "default"
+        },
+        "use_selection21": {
+            "use": "9c59d593-a9e4-4b9d-a8ed-d31f9c91e298",
+            "as": "default"
+        },
+        "use_selection7": {
+            "use": "4815e1c7-a433-443d-a112-d1e03d7df84b",
+            "as": "default"
+        },
+        "use_selection8": {
+            "use": "2dcedd6c-c95b-4a37-9cac-95d28faedca3",
+            "as": "default"
+        },
+        "use_selection9": {
+            "use": "a5daf189-3345-4b13-8716-c51f686f545b",
+            "as": "default"
+        },
+        "use_selection10": {
+            "use": "71acf8d6-32b8-4173-8277-eb9cda29fd64",
+            "as": "default"
+        },
+        "use_selection11": {
+            "use": "510dc0f6-da3f-4a78-b43d-3a03e2cb5fae",
+            "as": "GiteaPower"
+        },
+        "use_selection12": {
+            "use": "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c",
+            "as": "GiteaUtilities"
+        },
+        "use_selection13": {
+            "use": "3c7567d7-b079-4910-b325-7ed5c30cabff",
+            "as": "default"
+        },
+        "use_selection14": {
+            "use": "156f449b-ca6c-4a57-a925-be345e751614",
+            "as": "default"
+        },
+        "use_selection15": {
+            "use": "facd1e1c-ff2f-4520-b735-075c45aa55ed",
+            "as": "default"
+        }
+    },
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Factory",
+    "description": "Package Power Factory\r\n\r\n@since 5.2.1",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;",
+    "composer": ""
+}

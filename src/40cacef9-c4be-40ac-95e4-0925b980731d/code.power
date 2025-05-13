@@ -1,0 +1,11 @@
+	/**
+	 * Inspect an item and extract all the dependencies
+	 *
+	 * This method inspects the item and loads all dependencies
+	 *
+	 * @param   object  $item  The data item to inspect.
+	 *
+	 * @return  void
+	 * @since   5.2.1
+	 */
+	public function extract(object $item): void;

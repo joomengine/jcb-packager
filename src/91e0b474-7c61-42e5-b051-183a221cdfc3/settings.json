@@ -1,0 +1,21 @@
+{
+    "add_head": 1,
+    "add_licensing_template": 2,
+    "extends": "eb7d69c2-4ee9-4bd0-aacc-ab51a12be895",
+    "guid": "91e0b474-7c61-42e5-b051-183a221cdfc3",
+    "implements": [
+        "e335dd61-c2f9-4536-8ed9-aec5edee0b26"
+    ],
+    "load_selection": null,
+    "name": "Set",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Snippet.Remote.Set",
+    "type": "final class",
+    "use_selection": null,
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Snippet.Remote.Set",
+    "description": "Set Snippet based on global unique ids to remote repository\r\n\r\n@since 5.1.1",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\CMS\\Language\\Text;",
+    "composer": ""
+}

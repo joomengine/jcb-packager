@@ -15,17 +15,17 @@ namespace VDM\Joomla\Componentbuilder\Package\Service;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use VDM\Joomla\Componentbuilder\Power\Table;
-use VDM\Joomla\Componentbuilder\Package\Config;
 use VDM\Joomla\Componentbuilder\Package\Dependency\Tracker;
 use VDM\Joomla\Componentbuilder\Package\MessageBus;
+use VDM\Joomla\Componentbuilder\Utilities\Normalize;
 
 
 /**
- * Package Service Provider
+ * Package Power Service Provider
  * 
- * @since 5.2.1
+ * @since 5.1.1
  */
-class Package implements ServiceProviderInterface
+class Power implements ServiceProviderInterface
 {
 	/**
 	 * Registers the service provider with a DI container.
@@ -33,21 +33,21 @@ class Package implements ServiceProviderInterface
 	 * @param   Container  $container  The DI container.
 	 *
 	 * @return  void
-	 * @since 5.2.1
+	 * @since 5.1.1
 	 */
 	public function register(Container $container)
 	{
 		$container->alias(Table::class, 'Power.Table')->alias('Table', 'Power.Table')
 			->share('Power.Table', [$this, 'getPowerTable'], true);
 
-		$container->alias(Config::class, 'Config')
-			->share('Config', [$this, 'getConfig'], true);
-
 		$container->alias(Tracker::class, 'Power.Tracker')
 			->share('Power.Tracker', [$this, 'getPowerTracker'], true);
 
 		$container->alias(MessageBus::class, 'Power.Message')
 			->share('Power.Message', [$this, 'getMessageBus'], true);
+
+		$container->alias(Normalize::class, 'Utilities.Normalize')
+			->share('Utilities.Normalize', [$this, 'getNormalize'], true);
 	}
 
 	/**
@@ -56,24 +56,11 @@ class Package implements ServiceProviderInterface
 	 * @param   Container  $container  The DI container.
 	 *
 	 * @return  Table
-	 * @since  5.2.1
+	 * @since  5.1.1
 	 */
 	public function getPowerTable(Container $container): Table
 	{
 		return new Table();
-	}
-
-	/**
-	 * Get The Config Class.
-	 *
-	 * @param   Container  $container  The DI container.
-	 *
-	 * @return  Config
-	 * @since 5.2.1
-	 */
-	public function getConfig(Container $container): Config
-	{
-		return new Config();
 	}
 
 	/**
@@ -82,7 +69,7 @@ class Package implements ServiceProviderInterface
 	 * @param   Container  $container  The DI container.
 	 *
 	 * @return  Tracker
-	 * @since 5.2.1
+	 * @since 5.1.1
 	 */
 	public function getPowerTracker(Container $container): Tracker
 	{
@@ -95,11 +82,24 @@ class Package implements ServiceProviderInterface
 	 * @param   Container  $container  The DI container.
 	 *
 	 * @return  MessageBus
-	 * @since 5.2.1
+	 * @since 5.1.1
 	 */
 	public function getMessageBus(Container $container): MessageBus
 	{
 		return new MessageBus();
+	}
+
+	/**
+	 * Get The Normalize Class.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  Normalize
+	 * @since   5.1.1
+	 */
+	public function getNormalize(Container $container): Normalize
+	{
+		return new Normalize();
 	}
 }
 

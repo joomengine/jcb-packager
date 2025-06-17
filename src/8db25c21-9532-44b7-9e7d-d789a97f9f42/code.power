@@ -1,0 +1,93 @@
+	/**
+	 * Generate a structured Markdown README for a Joomla Module defined in JCB.
+	 *
+	 * This README includes component metadata such as version, identifiers,
+	 * ownership, feature toggles, licensing, and a collapsible template block.
+	 *
+	 * @param  object  $item  The JCB Joomla Module definition.
+	 *
+	 * @return string  The generated Markdown README.
+	 * @since  5.1.1
+	 */
+	public function get(object $item): string
+	{
+		$readme = [];
+
+		// Title Section
+		$readme[] = '### JCB! Joomla Module';
+
+		$name         = $item->name ?? 'error: missing name';
+		$systemName   = $item->system_name ?? 'error: missing system name';
+		$version      = $item->plugin_version ?? 'error: missing version';
+
+		$readme[] = "# {$systemName} (v{$version})";
+		$readme[] = "## {$name}";
+		$readme[] = '';
+
+		// Descriptions
+		$description = trim((string) ($item->description ?? ''));
+		if ($description !== '' && $description !== $systemName)
+		{
+			$readme[] = $description;
+			$readme[] = '';
+		}
+
+		// Module Settings
+		$targetArea = ((int) ($item->target ?? 1) === 2)
+			? '![Admin](https://img.shields.io/badge/Admin-grey?style=flat-square)'
+			: '![Site](https://img.shields.io/badge/Site-blue?style=flat-square)';
+
+		$addReadme = ((int) ($item->addreadme ?? 0) === 1)
+			? '![yes](https://img.shields.io/badge/yes-success?style=flat-square)'
+			: '![no](https://img.shields.io/badge/no-blue?style=flat-square)';
+
+		$readme[] = '### Module Settings';
+		$readme[] = <<<MD
+| Setting     | Value          |
+| Target Area | {$targetArea}  |
+| Add README  | {$addReadme}   |
+
+MD;
+
+		// Default Template
+		if (!empty($item->default))
+		{
+			$readme[] = '## Default Template:';
+			$readme[] = '```html';
+			$readme[] = rtrim($item->default);
+			$readme[] = '```';
+			$readme[] = '';
+		}
+
+		// Module Code
+		if (!empty($item->mod_code))
+		{
+			$readme[] = '## Module Code:';
+			$readme[] = '```php';
+			$readme[] = rtrim($item->mod_code);
+			$readme[] = '```';
+			$readme[] = '';
+		}
+
+		// Readme Block (if defined in module)
+		if (($item->addreadme ?? 0) == 1 && !empty($item->readme))
+		{
+			$readme[] = '<details>';
+			$readme[] = '<summary>README Template</summary>';
+			$readme[] = '';
+			$readme[] = '```markdown';
+			$readme[] = $this->normalizeMarkdown($item->readme);
+			$readme[] = '```';
+			$readme[] = '';
+			$readme[] = '</details>';
+			$readme[] = '';
+		}
+
+		// Footer
+		$readme[] = '> Display reusable content or functionality anywhere on your site with this flexible, position-ready Joomla Module built for seamless use in JCB.';
+		$readme[] = '';
+[CUSTOMCODE=itemReadmePackageFooter]
+
+		return implode("\n", $readme);
+	}
+[CUSTOMCODE=normalizeMarkdown]

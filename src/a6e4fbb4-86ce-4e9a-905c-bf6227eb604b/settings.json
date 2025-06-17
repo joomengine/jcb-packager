@@ -25,7 +25,7 @@
             "as": "default"
         },
         "use_selection3": {
-            "use": "f1ba7387-0e93-489d-934f-530caf3bdc83",
+            "use": "3ab0eba9-f37b-4b37-aec1-2e78067f2aff",
             "as": "default"
         },
         "use_selection4": {
@@ -39,11 +39,59 @@
         "use_selection6": {
             "use": "e9152636-aebe-494a-9ccc-dae7ea4251a9",
             "as": "MainReadme"
+        },
+        "use_selection7": {
+            "use": "bd784d56-56bf-4cfa-8622-f30a91248931",
+            "as": "ComponentAdminViews"
+        },
+        "use_selection8": {
+            "use": "dc51e169-9e76-4743-a776-ad94176cfe5f",
+            "as": "ComponentCustomAdminViews"
+        },
+        "use_selection9": {
+            "use": "8cfc6139-44f2-4fd0-b308-661131b82478",
+            "as": "ComponentSiteViews"
+        },
+        "use_selection10": {
+            "use": "e9e7fdbf-da5a-4545-9dce-0b884a488aba",
+            "as": "ComponentRouter"
+        },
+        "use_selection11": {
+            "use": "f9d6a2ec-1531-485a-8a56-67bcee869f92",
+            "as": "ComponentConfig"
+        },
+        "use_selection12": {
+            "use": "349bc5f4-d021-4bec-ac4d-7b45c9391327",
+            "as": "ComponentPlaceholders"
+        },
+        "use_selection13": {
+            "use": "2c5ebfa2-6ad1-422c-aee4-abb29aac1bd4",
+            "as": "ComponentUpdates"
+        },
+        "use_selection14": {
+            "use": "2b41186e-a3c1-4ceb-8def-c5607fef3a7a",
+            "as": "ComponentFilesFolders"
+        },
+        "use_selection15": {
+            "use": "44dc0910-f926-4d9b-a629-0a4686d5d2b9",
+            "as": "ComponentCustomAdminMenus"
+        },
+        "use_selection16": {
+            "use": "233abecf-fd28-418a-9a56-cc3b0fa2362e",
+            "as": "ComponentDashboard"
+        },
+        "use_selection17": {
+            "use": "cbdd685f-6752-4d36-bda5-aab2c2083217",
+            "as": "ComponentModules"
+        },
+        "use_selection18": {
+            "use": "6d906e14-04d3-477e-8801-a73b2004402d",
+            "as": "ComponentPlugins"
         }
     },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Service.Component",
-    "description": "Component Service Provider\r\n\r\n@since 5.2.1",
+    "description": "Component Service Provider\r\n\r\n@since 5.1.1",
     "implements_custom": "ServiceProviderInterface",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
     "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",

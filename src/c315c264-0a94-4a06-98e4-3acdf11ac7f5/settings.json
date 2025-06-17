@@ -11,7 +11,12 @@
     "power_version": "1.0.0",
     "system_name": "JCB.Package.Field.Readme.Item",
     "type": "final class",
-    "use_selection": null,
+    "use_selection": {
+        "use_selection0": {
+            "use": "db87c339-5bb6-4291-a7ef-2c48ea1b06bc",
+            "as": "default"
+        }
+    },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Field.Readme.Item",
     "description": "Compiler Field Item Readme\r\n\r\n@since  5.1.1",

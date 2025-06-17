@@ -39,11 +39,19 @@
         "use_selection6": {
             "use": "2ad70998-78de-4c42-aa15-1e5a52d0af8a",
             "as": "MainReadme"
+        },
+        "use_selection7": {
+            "use": "962f45d1-36d5-4bd8-9ea3-45f93e0b920d",
+            "as": "LibraryConfig"
+        },
+        "use_selection8": {
+            "use": "61fb1b6b-98d9-406c-afa7-f150f2c0b249",
+            "as": "LibraryFilesFoldersUrls"
         }
     },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Service.Library",
-    "description": "Library Service Provider\r\n\r\n@since  5.2.1",
+    "description": "Library Service Provider\r\n\r\n@since  5.1.1",
     "implements_custom": "ServiceProviderInterface",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
     "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",

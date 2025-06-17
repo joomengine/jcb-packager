@@ -1,0 +1,19 @@
+	/**
+	 * Constructor.
+	 *
+	 * Initializes the Registry object with optional data.
+	 *
+	 * @param  mixed        $data      Optional data to load into the registry.
+	 *                                    Can be an array, string, or object.
+	 * @param  string|null  $separator The path separator, and empty string will flatten the registry.
+	 * @since   5.1.1
+	 */
+	public function __construct($data = null, ?string $separator = null)
+	{
+		$data = [
+			'snippet' => 'Snippet',
+			'snippet_type' => 'SnippetType'
+		];
+
+		parent::__construct($data);
+	}

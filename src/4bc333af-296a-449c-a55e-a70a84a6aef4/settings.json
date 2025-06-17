@@ -14,41 +14,57 @@
     "use_selection": {
         "use_selection0": {
             "use": "14751303-e00d-4098-8bc0-9c65b0d553a2",
-            "as": "Power"
+            "as": "default"
         },
         "use_selection1": {
-            "use": "4815e1c7-a433-443d-a112-d1e03d7df84b",
+            "use": "cefe8a98-82f7-4dda-8382-d811d611e2ad",
             "as": "default"
         },
         "use_selection2": {
-            "use": "2dcedd6c-c95b-4a37-9cac-95d28faedca3",
+            "use": "4815e1c7-a433-443d-a112-d1e03d7df84b",
             "as": "default"
         },
         "use_selection3": {
-            "use": "a5daf189-3345-4b13-8716-c51f686f545b",
+            "use": "2dcedd6c-c95b-4a37-9cac-95d28faedca3",
             "as": "default"
         },
         "use_selection4": {
-            "use": "71acf8d6-32b8-4173-8277-eb9cda29fd64",
+            "use": "a5daf189-3345-4b13-8716-c51f686f545b",
             "as": "default"
         },
         "use_selection5": {
-            "use": "510dc0f6-da3f-4a78-b43d-3a03e2cb5fae",
-            "as": "GiteaPower"
-        },
-        "use_selection6": {
-            "use": "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c",
-            "as": "GiteaUtilities"
-        },
-        "use_selection7": {
-            "use": "3c7567d7-b079-4910-b325-7ed5c30cabff",
+            "use": "f8f14b43-d36b-4ded-b428-ec1bf494b56c",
             "as": "default"
         },
+        "use_selection6": {
+            "use": "77971f16-2e1d-4821-9997-2d7621443a37",
+            "as": "default"
+        },
+        "use_selection7": {
+            "use": "10b51583-a80e-49f4-b832-e15ddce6c160",
+            "as": "GithubUtilities"
+        },
         "use_selection8": {
-            "use": "156f449b-ca6c-4a57-a925-be345e751614",
+            "use": "71acf8d6-32b8-4173-8277-eb9cda29fd64",
             "as": "default"
         },
         "use_selection9": {
+            "use": "510dc0f6-da3f-4a78-b43d-3a03e2cb5fae",
+            "as": "GiteaPower"
+        },
+        "use_selection10": {
+            "use": "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c",
+            "as": "GiteaUtilities"
+        },
+        "use_selection11": {
+            "use": "3c7567d7-b079-4910-b325-7ed5c30cabff",
+            "as": "default"
+        },
+        "use_selection12": {
+            "use": "156f449b-ca6c-4a57-a925-be345e751614",
+            "as": "default"
+        },
+        "use_selection13": {
             "use": "facd1e1c-ff2f-4520-b735-075c45aa55ed",
             "as": "default"
         }

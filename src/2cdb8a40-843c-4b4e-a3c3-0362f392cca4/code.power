@@ -1,54 +1,47 @@
 	/**
-	 * Get an item readme
+	 * Generate a README for a JCB Admin View in Markdown format.
 	 *
-	 * @param object  $item  An item details.
+	 * Includes the system name, code-safe identifiers, optional short/long description, and usage context.
 	 *
-	 * @return string
-	 * @since 3.2.2
+	 * @param  object  $item  The Admin View definition.
+	 *
+	 * @return string  The generated README.
+	 * @since  5.1.1
 	 */
 	public function get(object $item): string
 	{
-		// build readme
-		$readme = ["```
-     ██╗ ██████╗  ██████╗ ███╗   ███╗██╗      █████╗                      
-     ██║██╔═══██╗██╔═══██╗████╗ ████║██║     ██╔══██╗                     
-     ██║██║   ██║██║   ██║██╔████╔██║██║     ███████║                     
-██   ██║██║   ██║██║   ██║██║╚██╔╝██║██║     ██╔══██║                     
-╚█████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║███████╗██║  ██║                     
- ╚════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝                     
-                                                                          
- █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗    ██╗   ██╗██╗███████╗██╗    ██╗
-██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║    ██║   ██║██║██╔════╝██║    ██║
-███████║██║  ██║██╔████╔██║██║██╔██╗ ██║    ██║   ██║██║█████╗  ██║ █╗ ██║
-██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║    ╚██╗ ██╔╝██║██╔══╝  ██║███╗██║
-██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║     ╚████╔╝ ██║███████╗╚███╔███╔╝
-╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝      ╚═══╝  ╚═╝╚══════╝ ╚══╝╚══╝ 
-```"];
-		// system name
-		$readme[] = "# " . $item->name;
+		$readme = [];
 
-		if (!empty($item->description))
+		// Title
+		$readme[] = '### JCB! Admin View';
+
+		$systemName       = $item->system_name ?? 'error: missing system name';
+		$nameSingle       = $item->name_single ?? 'edit';
+		$nameList         = $item->name_list ?? 'list';
+		$codeNames        = ClassfunctionHelper::safe($nameSingle) . ':' . ClassfunctionHelper::safe($nameList);
+		$readme[]         = "# {$systemName} ({$codeNames})";
+		$readme[]         = '';
+
+		// Short description
+		$shortDescription = $item->short_description ?? '';
+		if ($shortDescription !== '' && $shortDescription !== $systemName)
 		{
-			$readme[] = "\n" . $item->description;
-		}
-		elseif (!empty($item->short_description))
-		{
-			$readme[] = "\n" . $item->short_description;
+			$readme[] = '> ' . trim($shortDescription);
+			$readme[] = '';
 		}
 
-		$readme[] = "\nThe Joomla Admin View is a self‑contained backend form for a single record: it unites Fields to load existing data, validate user edits, and handle CRUD on data in the system, serving as the conduit that writes changes directly to the component’s database tables in Joomla Component Builder (JCB). By using the \"reset\" button, you can instantly synchronize this Admin View with the authoritative version hosted in our core repository, ensuring your Components always benefit from the latest refinements, performance optimizations, and security enhancements.\n\n Want something more fitting to your specific needs? Fork the repo, use the view as a blueprint and point JCB to your branch. Whether you’re layering in complex filters, interactive fields, or custom coded functionality;  you stay in charge while still enjoying JCB’s effortless deployment workflow.\n
-\n
-\"This flexible approach embraces JCB’s open-source model, giving you the freedom to adapt your components to your exact needs while staying connected to a powerful and community-driven ecosystem.\"\n";
+		// Full description
+		$description = $item->description ?? '';
+		if ($description !== '' && $description !== $shortDescription && $description !== $systemName)
+		{
+			$readme[] = trim($description);
+			$readme[] = '';
+		}
 
-		// yes you can remove this, but why?
-		$readme[] = "\n---\n```
-     ██╗ ██████╗██████╗
-     ██║██╔════╝██╔══██╗
-     ██║██║     ██████╔╝
-██   ██║██║     ██╔══██╗
-╚█████╔╝╚██████╗██████╔╝
- ╚════╝  ╚═════╝╚═════╝
-```\n> Build with [Joomla Component Builder](https://git.vdm.dev/joomla/Component-Builder)\n\n";
+		// Footer
+		$readme[] = '> Manage single-record forms with this reusable Admin View designed for smooth data handling, customization, and full integration in JCB.';
+		$readme[] = '';
+[CUSTOMCODE=itemReadmePackageFooter]
 
 		return implode("\n", $readme);
 	}

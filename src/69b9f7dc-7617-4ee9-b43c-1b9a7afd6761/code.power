@@ -1,56 +1,56 @@
 	/**
-	 * Get an item readme
+	 * Generate a README for a JCB Template in Markdown format.
 	 *
-	 * @param object  $item  An item details.
+	 * Includes the template name, alias usage, optional PHP view logic, and the HTML template.
 	 *
-	 * @return string
-	 * @since 3.2.2
+	 * @param  object  $item  The template definition object.
+	 *
+	 * @return string  The generated README.
+	 * @since  5.1.1
 	 */
 	public function get(object $item): string
 	{
-		// build readme
-		$readme = ["```
-     ██╗ ██████╗  ██████╗ ███╗   ███╗██╗      █████╗                 
-     ██║██╔═══██╗██╔═══██╗████╗ ████║██║     ██╔══██╗                
-     ██║██║   ██║██║   ██║██╔████╔██║██║     ███████║                
-██   ██║██║   ██║██║   ██║██║╚██╔╝██║██║     ██╔══██║                
-╚█████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║███████╗██║  ██║                
- ╚════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝                
-                                                                     
-████████╗███████╗███╗   ███╗██████╗ ██╗      █████╗ ████████╗███████╗
-╚══██╔══╝██╔════╝████╗ ████║██╔══██╗██║     ██╔══██╗╚══██╔══╝██╔════╝
-   ██║   █████╗  ██╔████╔██║██████╔╝██║     ███████║   ██║   █████╗  
-   ██║   ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██║     ██╔══██║   ██║   ██╔══╝  
-   ██║   ███████╗██║ ╚═╝ ██║██║     ███████╗██║  ██║   ██║   ███████╗
-   ╚═╝   ╚══════╝╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
-```"];
-		// system name
-		$readme[] = "# " . $item->name;
+		$readme = [];
 
-		if (!empty($item->description))
+		// Title
+		$readme[] = '### JCB! Template';
+		$readme[] = '# ' . ($item->name ?? 'error: missing name');
+		$readme[] = '';
+
+		// Template alias usage
+		if (!empty($item->alias))
 		{
-			$readme[] = "\n" . $item->description;
+			$readme[] = '## Key:';
+			$readme[] = '```php';
+			$readme[] = "\$this->load" . "Template('{$item->alias}', [?]);";
+			$readme[] = '```';
+			$readme[] = '';
 		}
 
-		$readme[] = "The Joomla template within this repository provide an essential mechanism for organizing and rendering the structure of site views and custom admin views in Joomla Component Builder (JCB). Each template acts as a top-level wrapper, often including one or more layouts, and is carefully designed to control the overall flow and presentation of view output.\n
-\n
-Templates ensure a clean separation of concerns by handling shared rendering logic above the layout level, enabling developers to maintain consistent design and behavior across multiple views. They streamline the way views are built and presented, making component development more efficient and maintainable.\n
-\n
-By using the reset functionality, users can seamlessly update individual templates to match the latest versions maintained in the core repository—ensuring their projects stay current with improvements and best practices.\n
-\n
-For developers who need more control or wish to implement project-specific logic, this repository can be forked. You can then point your JCB instance to your own fork to maintain and distribute customized templates independently from the main JCB repository.\n
-\n
-This flexible approach embraces JCB’s open-source model, giving you the freedom to adapt your components to your exact needs while staying connected to a powerful and community-driven ecosystem.\n";
+		// PHP logic block
+		if (($item->add_php_view ?? 0) == 1 && !empty($item->php_view))
+		{
+			$readme[] = '## PHP:';
+			$readme[] = '```php';
+			$readme[] = rtrim($item->php_view);
+			$readme[] = '```';
+			$readme[] = '';
+		}
 
-		// yes you can remove this, but why?
-		$readme[] = "\n---\n```
-     ██╗ ██████╗██████╗
-     ██║██╔════╝██╔══██╗
-     ██║██║     ██████╔╝
-██   ██║██║     ██╔══██╗
-╚█████╔╝╚██████╗██████╔╝
- ╚════╝  ╚═════╝╚═════╝
-```\n> Build with [Joomla Component Builder](https://git.vdm.dev/joomla/Component-Builder)\n\n";
+		// HTML layout block
+		if (!empty($item->template))
+		{
+			$readme[] = '## HTML:';
+			$readme[] = '```html';
+			$readme[] = rtrim($item->template);
+			$readme[] = '```';
+			$readme[] = '';
+		}
+
+		// Footer
+		$readme[] = '> Structure your Joomla views with a reusable template that ensures consistent rendering, streamlined development, and easy customization within JCB.';
+		$readme[] = '';
+[CUSTOMCODE=itemReadmePackageFooter]
 
 		return implode("\n", $readme);
 	}

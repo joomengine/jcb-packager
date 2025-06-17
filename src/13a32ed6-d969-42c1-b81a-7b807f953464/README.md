@@ -1,40 +1,36 @@
-```
-██████╗  ██████╗ ██╗    ██╗███████╗██████╗
-██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔══██╗
-██████╔╝██║   ██║██║ █╗ ██║█████╗  ██████╔╝
-██╔═══╝ ██║   ██║██║███╗██║██╔══╝  ██╔══██╗
-██║     ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
-╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
-```
+### JCB! Power
 # final class Table (Details)
 > namespace: **VDM\Joomla\Componentbuilder\Power**
 > extends: **ExtendingTable**
 
 ```uml
 @startuml
+
 class Table << (F,LightGreen) >> #RoyalBlue {
-  + linked(string $table) : array
-  + dependencies(string $entity) : array
+  + parents(string $table) : array
+  + children(string $entity, ?array $direct = null) : array
   + search(string $table, string $area) : array
-  - traverseSubformLinkedFields(string $name, array $fields, ...) : void
-  - traverseSubformDependencies(string $table, string $name, ...) : void
-  - isSubformField(array $field) : bool
-  - isValidLinkedField(array $field) : bool
-  - isValidDependencyField(?array $link, string $entity) : bool
+  - traverseSubformParents(string $name, array $fields, ...) : void
+  - traverseSubformChildren(string $table, string $name, ...) : void
+  - isSubform(array $field) : bool
+  - isValidParent(array $field) : bool
+  - isValidChild(?array $link, string $entity) : bool
 }
 
-note right of Table::linked
-  Get all linked fields of an area/view/table
+note right of Table::parents
+  Get all parents fields of an area/view/table
 
-  since: 5.2.1
+  since: 5.1.1
   return: array
 end note
 
-note left of Table::dependencies
-  Get all incoming link dependencies pointing to the given entity.
+note left of Table::children
+  Get direct children dependencies pointing to the given entity.
 This method returns a map of `$entity` field keys to an array of referencing tables and fields.
+empty-array: means return none
+null: means return all
 
-  since: 5.2.1
+  since: 5.1.1
   return: array
 end note
 
@@ -46,10 +42,10 @@ that hold all the fields to be searched in a specific area of JCB
   return: array
 end note
 
-note left of Table::traverseSubformLinkedFields
-  Recursively traverses subform fields to collect valid linked fields
+note left of Table::traverseSubformParents
+  Recursively traverses subform fields to collect valid parent fields
 
-  since: 5.2.1
+  since: 5.1.1
   return: void
   
   arguments:
@@ -58,10 +54,10 @@ note left of Table::traverseSubformLinkedFields
     $linked
 end note
 
-note right of Table::traverseSubformDependencies
-  Recursively traverses subform fields to collect valid dependencies
+note right of Table::traverseSubformChildren
+  Recursively traverses subform fields to collect valid Children dependencies
 
-  since: 5.2.1
+  since: 5.1.1
   return: void
   
   arguments:
@@ -72,52 +68,54 @@ note right of Table::traverseSubformDependencies
     $result
 end note
 
-note left of Table::isSubformField
+note left of Table::isSubform
   Validates that the given field represents a well-formed subform.
 
-  since: 5.2.1
+  since: 5.1.1
   return: bool
 end note
 
-note right of Table::isValidLinkedField
-  Validates that the given field represents a well-formed outgoing link.
+note right of Table::isValidParent
+  Validates that the given field represents a well-formed outgoing/parent link.
 
-  since: 5.2.1
+  since: 5.1.1
   return: bool
 end note
 
-note left of Table::isValidDependencyField
-  Validates that the provided link config represents a valid dependency on the given entity.
+note left of Table::isValidChild
+  Validates that the provided link config represents a valid child dependency on the given entity.
 
-  since: 5.2.1
+  since: 5.1.1
   return: bool
 end note
- 
+
 @enduml
 ```
 
-The Power feature in JCB allows you to write PHP classes and their implementations, making it easy to include them in your Joomla project. JCB handles linking, autoloading, namespacing, and folder structure creation for you.
+The **Power** feature in JCB allows you to write PHP classes and their implementations,
+making it easy to include them in your Joomla project. JCB handles linking, autoloading,
+namespacing, and folder structure creation for you.
 
-By using the SPK (Super Power Key) in your custom code (replacing the class name in your code with the SPK), JCB will automatically pull the power from the repository into your project. This makes it available in your JCB instance, allowing you to edit it and include the class in your generated Joomla component.
+By using the **SPK** (Super Power Key) in your custom code (replacing the class name
+in your code with the SPK), JCB will automatically pull the Power from the repository
+into your project. This makes it available in your JCB instance, allowing you to edit
+and include the class in your generated Joomla component.
 
-JCB uses placeholders like [[[`NamespacePrefix`]]] and [[[`ComponentNamespace`]]] in namespacing to prevent collisions and improve reusability across different JCB systems. You can also set the **JCB powers path** globally or per component under the **Dynamic Integration** tab, providing flexibility and easy maintainability.
+JCB uses placeholders like [[[`NamespacePrefix`]]] and [[[`ComponentNamespace`]]] in
+namespacing to prevent collisions and improve reusability across different JCB systems.
+
+You can also set the **JCB powers path** globally or per component under the
+**Dynamic Integration** tab, providing flexibility and maintainability.
 
 To add this specific Power to your project in JCB:
 
-> simply use this SPK
+> Simply use this SPK:
 ```
 Super---13a32ed6_d969_42c1_b81a_7b807f953464---Power
 ```
-> remember to replace the `---` with `___` to activate this Power in your code
+> Remember to replace the `---` with `___` to activate this Power in your code.
+
+### Used in [Joomla Component Builder](https://www.joomlacomponentbuilder.com) - [Source](https://git.vdm.dev/joomla/Component-Builder) - [Mirror](https://github.com/vdm-io/Joomla-Component-Builder) - [Download](https://git.vdm.dev/joomla/pkg-component-builder/releases)
 
 ---
-```
-     ██╗ ██████╗██████╗
-     ██║██╔════╝██╔══██╗
-     ██║██║     ██████╔╝
-██   ██║██║     ██╔══██╗
-╚█████╔╝╚██████╗██████╔╝
- ╚════╝  ╚═════╝╚═════╝
-```
-> Build with [Joomla Component Builder](https://git.vdm.dev/joomla/Component-Builder)
-
+[![Joomla Volunteer Portal](https://img.shields.io/badge/-Joomla-gold?logo=joomla)](https://volunteers.joomla.org/joomlers/1396-llewellyn-van-der-merwe "Join Llewellyn on the Joomla Volunteer Portal: Shaping the Future Together!") [![Octoleo](https://img.shields.io/badge/-Octoleo-black?logo=linux)](https://git.vdm.dev/octoleo "--quiet") [![Llewellyn](https://img.shields.io/badge/-Llewellyn-ffffff?logo=gitea)](https://git.vdm.dev/Llewellyn "Collaborate and Innovate with Llewellyn on Git: Building a Better Code Future!") [![Telegram](https://img.shields.io/badge/-Telegram-blue?logo=telegram)](https://t.me/Joomla_component_builder "Join Llewellyn and the Community on Telegram: Building Joomla Components Together!") [![Mastodon](https://img.shields.io/badge/-Mastodon-9e9eec?logo=mastodon)](https://joomla.social/@llewellyn "Connect and Engage with Llewellyn on Joomla Social: Empowering Communities, One Post at a Time!") [![X (Twitter)](https://img.shields.io/badge/-X-black?logo=x)](https://x.com/llewellynvdm "Join the Conversation with Llewellyn on X: Where Ideas Take Flight!") [![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github)](https://github.com/Llewellynvdm "Build, Innovate, and Thrive with Llewellyn on GitHub: Turning Ideas into Impact!") [![YouTube](https://img.shields.io/badge/-YouTube-ff0000?logo=youtube)](https://www.youtube.com/@OctoYou "Explore, Learn, and Create with Llewellyn on YouTube: Your Gateway to Inspiration!") [![n8n](https://img.shields.io/badge/-n8n-black?logo=n8n)](https://n8n.io/creators/octoleo "Effortless Automation and Impactful Workflows with Llewellyn on n8n!") [![Docker Hub](https://img.shields.io/badge/-Docker-grey?logo=docker)](https://hub.docker.com/u/llewellyn "Llewellyn on Docker: Containerize Your Creativity!") [![Open Collective](https://img.shields.io/badge/-Donate-green?logo=opencollective)](https://opencollective.com/joomla-component-builder "Donate towards JCB: Help Llewellyn financially so he can continue developing this great tool!") [![GPG Key](https://img.shields.io/badge/-GPG-blue?logo=gnupg)](https://git.vdm.dev/Llewellyn/gpg "Unlock Trust and Security with Llewellyn's GPG Key: Your Gateway to Verified Connections!")

@@ -2,7 +2,7 @@
 	 * Package Container
 	 *
 	 * @var   Container|null
-	 * @since 5.2.1
+	 * @since 5.1.1
 	 **/
 	protected static ?Container $container = null;
 
@@ -10,12 +10,14 @@
 	 * Create a container object
 	 *
 	 * @return  Container
-	 * @since  5.2.1
+	 * @since  5.1.1
 	 */
 	protected static function createContainer(): Container
 	{
 		return (new Container())
 			->registerServiceProvider(new Component())
+			->registerServiceProvider(new JoomlaModule())
+			->registerServiceProvider(new JoomlaPlugin())
 			->registerServiceProvider(new AdminView())
 			->registerServiceProvider(new SiteView())
 			->registerServiceProvider(new CustomAdminView())
@@ -24,11 +26,16 @@
 			->registerServiceProvider(new Template())
 			->registerServiceProvider(new Layout())
 			->registerServiceProvider(new Library())
-			->registerServiceProvider(new Package())
 			->registerServiceProvider(new Field())
+			->registerServiceProvider(new Power())
+			->registerServiceProvider(new Dependencies())
+			->registerServiceProvider(new Package())
 			->registerServiceProvider(new Database())
 			->registerServiceProvider(new Model())
 			->registerServiceProvider(new Data())
+			->registerServiceProvider(new Git())
+			->registerServiceProvider(new Github())
+			->registerServiceProvider(new GithubUtilities())
 			->registerServiceProvider(new Gitea())
 			->registerServiceProvider(new GiteaPower())
 			->registerServiceProvider(new GiteaUtilities())

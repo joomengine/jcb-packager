@@ -1,0 +1,33 @@
+	/**
+	 * Get the folder content
+	 *
+	 * @param  string   $fullPath  The full path to the folder
+	 * @param  string   $guid        The folder key/guid
+	 *
+	 * @return string|null
+	 * @since  5.1.1
+	 */
+	protected function getContent(string $fullPath, string $guid): ?string
+	{
+		$zip_path = "{$fullPath}.{$guid}";
+		$content = null;
+
+		try {
+			$done = FileHelper::zip($fullPath, $zip_path);
+			$content = ($done && is_file($zip_path))
+				? FileHelper::getContent($zip_path)
+				: null;
+		} catch (\Throwable $e) {
+			$this->messages->add('error', Text::sprintf(
+				'%s:%s [%s] could not be ::zipped:: from full path:%s.<br><br><b>Error Message</b>:<br>%s',
+				$area, $target, $value, $fullPath ?? 'missing', $e->getMessage()
+			));
+		} finally {
+			if (is_file($zip_path))
+			{
+				File::delete($zip_path);
+			}
+		}
+
+		return $content;
+	}

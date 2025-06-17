@@ -17,45 +17,53 @@
             "as": "default"
         },
         "use_selection1": {
-            "use": "13a32ed6-d969-42c1-b81a-7b807f953464",
-            "as": "default"
-        },
-        "use_selection9": {
-            "use": "dcb893ed-9a9f-426d-b1fd-3707a0be98c0",
-            "as": "default"
-        },
-        "use_selection2": {
             "use": "909b78a0-2c36-42ce-8a66-d56697987ef6",
             "as": "default"
         },
-        "use_selection3": {
+        "use_selection2": {
             "use": "d490d391-9ed6-49a0-8702-d9b6610ef07d",
             "as": "RemoteConfig"
         },
-        "use_selection4": {
+        "use_selection3": {
             "use": "d325341e-4ba9-45f3-a944-3919adca5570",
             "as": "default"
         },
-        "use_selection5": {
+        "use_selection4": {
             "use": "3ab0eba9-f37b-4b37-aec1-2e78067f2aff",
             "as": "default"
         },
+        "use_selection5": {
+            "use": "f1ba7387-0e93-489d-934f-530caf3bdc83",
+            "as": "default"
+        },
         "use_selection6": {
-            "use": "91e0b474-7c61-42e5-b051-183a221cdfc3",
+            "use": "20b02d99-d69e-47e0-ac05-7866f0deb055",
             "as": "default"
         },
         "use_selection7": {
+            "use": "f3ca58c7-22d1-4759-b633-fae0a635d9a4",
+            "as": "BuilderSet"
+        },
+        "use_selection8": {
+            "use": "6f2607e9-a5a3-49d7-b707-33cedd5302f0",
+            "as": "BuilderGet"
+        },
+        "use_selection9": {
             "use": "23f2465c-a5de-4e4d-a6c1-419127ab2b43",
             "as": "ItemReadme"
         },
-        "use_selection8": {
+        "use_selection10": {
             "use": "537f4b68-e375-4799-a5c3-3b291f716c6f",
             "as": "MainReadme"
+        },
+        "use_selection11": {
+            "use": "e1134463-de59-4b3c-9a1b-048b079f3321",
+            "as": "SnippetType"
         }
     },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Snippet.Service.Snippet",
-    "description": "Snippet Service Provider\r\n\r\n@since  5.2.1",
+    "description": "Snippet Service Provider\r\n\r\n@since  5.1.1",
     "implements_custom": "ServiceProviderInterface",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
     "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",

@@ -11,10 +11,47 @@
     "power_version": "1.0.0",
     "system_name": "JCB.Package.Remote.Set",
     "type": "class",
-    "use_selection": null,
+    "use_selection": {
+        "use_selection0": {
+            "use": "9787d63d-4d2e-44d3-9ffb-e4bfffd1a5a8",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "dcb893ed-9a9f-426d-b1fd-3707a0be98c0",
+            "as": "Messages"
+        },
+        "use_selection2": {
+            "use": "c182506a-ab84-439c-b962-1e606b58d545",
+            "as": "Grep"
+        },
+        "use_selection3": {
+            "use": "40cacef9-c4be-40ac-95e4-0925b980731d",
+            "as": "Resolver"
+        },
+        "use_selection4": {
+            "use": "61dfeb6a-2e26-44a7-87f8-68b7b09f94a0",
+            "as": "Config"
+        },
+        "use_selection5": {
+            "use": "65a0f81a-14fc-4870-9382-b8d830b19937",
+            "as": "ItemReadme"
+        },
+        "use_selection6": {
+            "use": "217416f6-24cf-41c0-b18e-11086111d447",
+            "as": "MainReadme"
+        },
+        "use_selection7": {
+            "use": "d1de5d5b-bf29-4031-8094-76c4f6c75900",
+            "as": "Git"
+        },
+        "use_selection8": {
+            "use": "7212e4db-371f-4cfd-8122-32e9bb100d83",
+            "as": "Items"
+        }
+    },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Remote.Set",
-    "description": "Set Layout based on global unique ids to remote repository\r\n\r\n@since 5.2.1",
+    "description": "Set package based on global unique ids to remote repository\r\n\r\n@since 5.1.1",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
     "head": "use Joomla\\CMS\\Language\\Text;",
     "composer": ""

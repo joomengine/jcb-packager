@@ -12,90 +12,118 @@
     "system_name": "JCB.Package.Factory",
     "type": "abstract class",
     "use_selection": {
-        "use_selection19": {
+        "use_selection0": {
             "use": "a6e4fbb4-86ce-4e9a-905c-bf6227eb604b",
             "as": "default"
         },
-        "use_selection18": {
-            "use": "22ff81e2-3f0f-4049-842c-622202c8e687",
-            "as": "default"
-        },
-        "use_selection17": {
-            "use": "ed7fc3b5-fba9-4271-aea5-b873b48b6fb7",
-            "as": "default"
-        },
-        "use_selection0": {
-            "use": "1850e10c-57c6-41f0-baa6-5876b554d98d",
-            "as": "default"
-        },
         "use_selection1": {
-            "use": "ecdd9ea6-cb5b-4316-8c43-c2fee2976e06",
+            "use": "e55aaad9-e40e-478a-a5ce-b94af3d1d1ff",
             "as": "default"
         },
         "use_selection2": {
-            "use": "f89e8379-267b-448c-bb68-c26cda31c98e",
+            "use": "394c9c84-52ab-4246-bff9-654ef453f5e8",
             "as": "default"
         },
         "use_selection3": {
-            "use": "89ae4bf6-c0a7-4ce2-8416-96804a125fa0",
+            "use": "22ff81e2-3f0f-4049-842c-622202c8e687",
             "as": "default"
         },
         "use_selection4": {
-            "use": "2d3bc7e1-88d3-4318-9cb3-cb27c75e9c50",
+            "use": "1850e10c-57c6-41f0-baa6-5876b554d98d",
             "as": "default"
         },
         "use_selection5": {
-            "use": "283bd095-8244-437a-b1c6-474248a28140",
+            "use": "ed7fc3b5-fba9-4271-aea5-b873b48b6fb7",
             "as": "default"
         },
         "use_selection6": {
-            "use": "cefe8a98-82f7-4dda-8382-d811d611e2ad",
-            "as": "default"
-        },
-        "use_selection21": {
-            "use": "9c59d593-a9e4-4b9d-a8ed-d31f9c91e298",
+            "use": "ecdd9ea6-cb5b-4316-8c43-c2fee2976e06",
             "as": "default"
         },
         "use_selection7": {
-            "use": "4815e1c7-a433-443d-a112-d1e03d7df84b",
+            "use": "f89e8379-267b-448c-bb68-c26cda31c98e",
             "as": "default"
         },
         "use_selection8": {
-            "use": "2dcedd6c-c95b-4a37-9cac-95d28faedca3",
+            "use": "89ae4bf6-c0a7-4ce2-8416-96804a125fa0",
             "as": "default"
         },
         "use_selection9": {
-            "use": "a5daf189-3345-4b13-8716-c51f686f545b",
+            "use": "2d3bc7e1-88d3-4318-9cb3-cb27c75e9c50",
             "as": "default"
         },
         "use_selection10": {
-            "use": "71acf8d6-32b8-4173-8277-eb9cda29fd64",
+            "use": "283bd095-8244-437a-b1c6-474248a28140",
             "as": "default"
         },
         "use_selection11": {
-            "use": "510dc0f6-da3f-4a78-b43d-3a03e2cb5fae",
-            "as": "GiteaPower"
+            "use": "9c59d593-a9e4-4b9d-a8ed-d31f9c91e298",
+            "as": "default"
         },
         "use_selection12": {
-            "use": "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c",
-            "as": "GiteaUtilities"
+            "use": "cefe8a98-82f7-4dda-8382-d811d611e2ad",
+            "as": "default"
         },
         "use_selection13": {
-            "use": "3c7567d7-b079-4910-b325-7ed5c30cabff",
+            "use": "cc3c9030-50b6-4907-867f-3354ab2d94e5",
             "as": "default"
         },
         "use_selection14": {
-            "use": "156f449b-ca6c-4a57-a925-be345e751614",
+            "use": "da4c9111-e640-463b-96c9-8ac02ed896ce",
             "as": "default"
         },
         "use_selection15": {
+            "use": "4815e1c7-a433-443d-a112-d1e03d7df84b",
+            "as": "default"
+        },
+        "use_selection16": {
+            "use": "2dcedd6c-c95b-4a37-9cac-95d28faedca3",
+            "as": "default"
+        },
+        "use_selection17": {
+            "use": "a5daf189-3345-4b13-8716-c51f686f545b",
+            "as": "default"
+        },
+        "use_selection18": {
+            "use": "f8f14b43-d36b-4ded-b428-ec1bf494b56c",
+            "as": "default"
+        },
+        "use_selection19": {
+            "use": "77971f16-2e1d-4821-9997-2d7621443a37",
+            "as": "default"
+        },
+        "use_selection20": {
+            "use": "10b51583-a80e-49f4-b832-e15ddce6c160",
+            "as": "GithubUtilities"
+        },
+        "use_selection21": {
+            "use": "71acf8d6-32b8-4173-8277-eb9cda29fd64",
+            "as": "default"
+        },
+        "use_selection22": {
+            "use": "510dc0f6-da3f-4a78-b43d-3a03e2cb5fae",
+            "as": "GiteaPower"
+        },
+        "use_selection23": {
+            "use": "6edf0cf3-c2b0-45c9-84d2-c6ef1c5d434c",
+            "as": "GiteaUtilities"
+        },
+        "use_selection24": {
+            "use": "3c7567d7-b079-4910-b325-7ed5c30cabff",
+            "as": "default"
+        },
+        "use_selection25": {
+            "use": "156f449b-ca6c-4a57-a925-be345e751614",
+            "as": "default"
+        },
+        "use_selection26": {
             "use": "facd1e1c-ff2f-4520-b735-075c45aa55ed",
             "as": "default"
         }
     },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Factory",
-    "description": "Package Power Factory\r\n\r\n@since 5.2.1",
+    "description": "Package Power Factory\r\n\r\n@since 5.1.1",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
     "head": "use Joomla\\DI\\Container;",
     "composer": ""

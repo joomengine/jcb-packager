@@ -1,0 +1,39 @@
+{
+    "add_head": 1,
+    "add_licensing_template": 2,
+    "extends": "",
+    "guid": "da4c9111-e640-463b-96c9-8ac02ed896ce",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Package",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Package.Service.Package",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "ee66764f-0f4c-4b11-a726-d0cb55ddb252",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "0c22b0d7-6e82-4831-a225-440d6f369961",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "6f2607e9-a5a3-49d7-b707-33cedd5302f0",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "f3ca58c7-22d1-4759-b633-fae0a635d9a4",
+            "as": "default"
+        }
+    },
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Service.Package",
+    "description": "Package Service Provider\r\n\r\n@since 5.1.1",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

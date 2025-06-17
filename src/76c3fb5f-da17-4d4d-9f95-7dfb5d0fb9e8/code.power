@@ -1,0 +1,13 @@
+	/**
+	 * Get the file content
+	 *
+	 * @param  string   $fullPath  The full path to the file
+	 * @param  string   $guid        The folder key/guid
+	 *
+	 * @return string|null
+	 * @since  5.1.1
+	 */
+	protected function getContent(string $fullPath, string $guid): ?string
+	{
+		return FileHelper::getContent($fullPath, null);
+	}

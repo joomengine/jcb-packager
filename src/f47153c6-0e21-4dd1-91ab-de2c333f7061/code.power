@@ -1,0 +1,12 @@
+	/**
+	 * Get an item readme
+	 *
+	 * @param object  $item  An item details.
+	 *
+	 * @return string
+	 * @since 3.2.2
+	 */
+	public function get(object $item): string
+	{
+		return ''; // no readme for children
+	}

@@ -1,0 +1,26 @@
+	/**
+	 * Check if an folder is found locally
+	 *
+	 * @param  string   $fullPath  The full path to the folder
+	 *
+	 * @return bool
+	 * @since  5.1.1
+	 */
+	protected function isLocal(string $fullPath): bool
+	{
+		return is_dir($fullPath);
+	}
+
+	/**
+	 * Store the found folder locally
+	 *
+	 * @param  object       $item      The folder to store
+	 * @param  string|null  $fullPath  The full path to the folder
+	 *
+	 * @return bool
+	 * @since  5.1.1
+	 */
+	protected function store(object $item, ?string $fullPath = null): bool
+	{
+		return false;
+	}

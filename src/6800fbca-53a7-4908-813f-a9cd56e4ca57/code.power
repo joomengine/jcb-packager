@@ -1,0 +1,26 @@
+	/**
+	 * Check if an file is found locally
+	 *
+	 * @param  string   $fullPath  The full path to the file
+	 *
+	 * @return bool
+	 * @since  5.1.1
+	 */
+	protected function isLocal(string $fullPath): bool
+	{
+		return is_file($fullPath);
+	}
+
+	/**
+	 * Store the found file locally
+	 *
+	 * @param  object       $item      The file to store
+	 * @param  string|null  $fullPath  The full path to the file
+	 *
+	 * @return bool
+	 * @since  5.1.1
+	 */
+	protected function store(object $item, ?string $fullPath = null): bool
+	{
+		return false;
+	}

@@ -1,0 +1,82 @@
+	/**
+	 * Generate the main README for the JCB Field Types repository in Markdown format.
+	 *
+	 * Field Types define reusable templates for Joomla form fields inside JCB. Each field type links directly
+	 * to Joomla's native XML field structure and allows easy reuse of predefined properties across multiple fields.
+	 *
+	 * @param  array  $items  All field types currently stored in the repository.
+	 *
+	 * @return string  The full generated Markdown README.
+	 * @since  3.2.0
+	 */
+	public function get(array $items): string
+	{
+		$readme = [];
+
+		// Header
+		$readme[] = '# JCB! Field Types';
+		$readme[] = '';
+
+		// What is it?
+		$readme[] = '### What Are JCB Field Types?';
+		$readme[] = <<<MD
+JCB Field Types act as **blueprints for Joomla form fields**.  
+Each Field Type defines the structure, rules, and properties (such as required, translatable, adjustable) of a Joomla-compatible field.  
+
+Instead of manually building repetitive XML field definitions, Field Types allow you to define:
+
+- **Input Types** (`text`, `list`, `radio`, etc.)
+- **Field Parameters** (`required`, `label`, `description`, etc.)
+- **Default Values and Validation**
+- **Custom Logic and Layout Overrides**
+
+These definitions are stored centrally and reused across all fields built in JCB.
+
+---
+MD;
+
+		$readme[] = '### Why Use Field Types?';
+		$readme[] = <<<MD
+When you create a new Field in JCB, you start by selecting a Field Type.  
+This selection **automatically inherits all the structure and metadata** you defined in the Field Type.
+
+This templating system:
+
+- Saves time and reduces duplication
+- Keeps your form field definitions consistent
+- Ensures compatibility with Joomla's XML-based field system
+- Allows global updates to propagate to all child fields
+
+---
+MD;
+
+		$readme[] = '### How Do Field Types Integrate with Joomla?';
+		$readme[] = <<<MD
+Each Field Type generates **conventional Joomla XML**, which Joomla uses to automatically render HTML forms in both admin and site interfaces.  
+The entire workflow is standards-based — meaning what JCB builds, Joomla understands and renders as expected.
+
+---
+MD;
+
+		$readme[] = '### Customization & Syncing';
+		$readme[] = <<<MD
+Field Types are version-controlled and centrally managed.
+
+- To **update a field type** from this repository in your JCB instance, simply use the `Reset` button inside the JCB GUI of field types.
+- You can also **fork this repository** and point your JCB to your fork — giving you full control and independence from upstream updates.
+
+This design promotes **collaborative sharing** while allowing **custom autonomy**.
+
+---
+MD;
+
+		$readme[] = '### Index of JCB Field Types';
+		$readme[] = '';
+
+		// Field type listing
+		$readme[] = $this->getIndex($items);
+		$readme[] = '';
+[CUSTOMCODE=mainReadmePackageFooter]
+
+		return implode("\n", $readme);
+	}

@@ -5,7 +5,7 @@
 	 *
 	 * @param   object  $item  The data item to inspect.
 	 *
-	 * @return  void
-	 * @since   5.2.1
+	 * @return  array|null  The extracted relationships.
+	 * @since   5.1.1
 	 */
-	public function extract(object $item): void;
+	public function extract(object $item): ?array;

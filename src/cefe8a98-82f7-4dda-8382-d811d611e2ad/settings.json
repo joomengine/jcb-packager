@@ -7,9 +7,9 @@
         "-1"
     ],
     "load_selection": null,
-    "name": "Package",
+    "name": "Power",
     "power_version": "1.0.0",
-    "system_name": "JCB.Package.Service.Package",
+    "system_name": "JCB.Package.Service.Power",
     "type": "class",
     "use_selection": {
         "use_selection0": {
@@ -17,21 +17,21 @@
             "as": "default"
         },
         "use_selection1": {
-            "use": "ee66764f-0f4c-4b11-a726-d0cb55ddb252",
-            "as": "default"
-        },
-        "use_selection2": {
             "use": "9787d63d-4d2e-44d3-9ffb-e4bfffd1a5a8",
             "as": "default"
         },
-        "use_selection3": {
+        "use_selection2": {
             "use": "dcb893ed-9a9f-426d-b1fd-3707a0be98c0",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "01a26f14-e29f-47bb-bd11-d6c2c177f6f4",
             "as": "default"
         }
     },
     "extendsinterfaces": null,
-    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Service.Package",
-    "description": "Package Service Provider\r\n\r\n@since 5.2.1",
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Service.Power",
+    "description": "Package Power Service Provider\r\n\r\n@since 5.1.1",
     "implements_custom": "ServiceProviderInterface",
     "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
     "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",

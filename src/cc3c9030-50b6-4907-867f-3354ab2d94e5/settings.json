@@ -1,0 +1,91 @@
+{
+    "add_head": 1,
+    "add_licensing_template": 2,
+    "extends": "",
+    "guid": "cc3c9030-50b6-4907-867f-3354ab2d94e5",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Dependencies",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Package.Service.Dependencies",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "4715e717-8984-4f4b-b239-753890b20668",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "3ab0eba9-f37b-4b37-aec1-2e78067f2aff",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "f1ba7387-0e93-489d-934f-530caf3bdc83",
+            "as": "default"
+        },
+        "use_selection3": {
+            "use": "d325341e-4ba9-45f3-a944-3919adca5570",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "f47153c6-0e21-4dd1-91ab-de2c333f7061",
+            "as": "ItemReadme"
+        },
+        "use_selection5": {
+            "use": "6de7d9a3-7e29-4eb6-b057-28019ac2f9c1",
+            "as": "MainReadme"
+        },
+        "use_selection6": {
+            "use": "f83371ef-7867-4faf-ac15-d82ee5585a4a",
+            "as": "ClassMethod"
+        },
+        "use_selection7": {
+            "use": "4869c42a-a447-4597-a755-b7ecb29afb36",
+            "as": "ClassProperty"
+        },
+        "use_selection8": {
+            "use": "52ec3708-a183-4f7f-9daf-212096f29c65",
+            "as": "ClassExtends"
+        },
+        "use_selection9": {
+            "use": "4e0baec7-8853-4bc3-bf5c-075d54b5deba",
+            "as": "Placeholder"
+        },
+        "use_selection14": {
+            "use": "ec48c3dc-8355-4919-aad1-591521fc36a2",
+            "as": "default"
+        },
+        "use_selection11": {
+            "use": "85cafc31-d81a-4415-8110-ef8c2fb61356",
+            "as": "File"
+        },
+        "use_selection12": {
+            "use": "6800fbca-53a7-4908-813f-a9cd56e4ca57",
+            "as": "default"
+        },
+        "use_selection13": {
+            "use": "76c3fb5f-da17-4d4d-9f95-7dfb5d0fb9e8",
+            "as": "default"
+        },
+        "use_selection15": {
+            "use": "472830e9-8638-4e62-b7fc-a3c1bb57c319",
+            "as": "Folder"
+        },
+        "use_selection16": {
+            "use": "cc1901e5-90ce-485a-87f9-5fc22ee6a4b6",
+            "as": "default"
+        },
+        "use_selection17": {
+            "use": "9ecea97f-251b-42c8-b80d-39dc522e452f",
+            "as": "default"
+        }
+    },
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Service.Dependencies",
+    "description": "Dependencies Service Provider\r\n\r\n@since 5.1.1",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

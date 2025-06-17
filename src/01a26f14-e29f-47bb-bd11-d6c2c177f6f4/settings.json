@@ -1,0 +1,24 @@
+{
+    "add_head": 0,
+    "add_licensing_template": 2,
+    "extends": "e0c8c931-52a0-4171-9909-e8769505bb1f",
+    "guid": "01a26f14-e29f-47bb-bd11-d6c2c177f6f4",
+    "implements": null,
+    "load_selection": null,
+    "name": "Normalize",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Utilities.Normalize",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "f11dc790-713e-4706-9a85-a318ed3ad56e",
+            "as": "default"
+        }
+    },
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Utilities.Normalize",
+    "description": "Utilities Normalize Paths\r\n\r\n@since 5.1.1",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "",
+    "composer": ""
+}

@@ -129,9 +129,11 @@
 			$this->git->setTarget($target_system);
 
 			// load the base and token if set
-			$target_system === 'gitea'
-				? $this->grep->loadApi($this->git, $repo->base ?? null, $repo->token ?? null)
-				: $this->grep->loadApi($this->git, null, $repo->token ?? null);
+			$this->grep->loadApi(
+				$this->git,
+				$repo->base ?? null,
+				$repo->token ?? null
+			);
 
 			try {
 				if (($existing = $this->grep->get($guid, ['remote'], $repo)) !== null)
@@ -223,7 +225,9 @@
 			$item->content, // The file content.
 			'Update ' . $item_name, // The commit message.
 			$sha, // The blob SHA of the old file.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 
 		$success = is_object($result);
@@ -253,7 +257,9 @@
 			$this->index_map_IndexSettingsPath($item), // The file path.
 			$item->content, // The file content.
 			'Create ' . $this->index_map_IndexName($item), // The commit message.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 
 		return is_object($result);

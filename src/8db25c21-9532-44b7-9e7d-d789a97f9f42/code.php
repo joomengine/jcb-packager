@@ -42,7 +42,7 @@ final class Item implements ItemInterface
 
 		$name         = $item->name ?? 'error: missing name';
 		$systemName   = $item->system_name ?? 'error: missing system name';
-		$version      = $item->plugin_version ?? 'error: missing version';
+		$version      = $item->module_version ?? 'error: missing version';
 
 		$readme[] = "# {$systemName} (v{$version})";
 		$readme[] = "## {$name}";
@@ -68,6 +68,7 @@ final class Item implements ItemInterface
 		$readme[] = '### Module Settings';
 		$readme[] = <<<MD
 | Setting     | Value          |
+|-------------|----------------|
 | Target Area | {$targetArea}  |
 | Add README  | {$addReadme}   |
 

@@ -14,7 +14,7 @@ namespace VDM\Joomla\Componentbuilder\Package\Remote;
 
 use Joomla\CMS\Language\Text;
 use VDM\Joomla\Interfaces\Remote\SetInterface;
-use VDM\Joomla\Componentbuilder\Package\Remote\Set;
+use VDM\Joomla\Componentbuilder\Remote\Set;
 
 
 /**
@@ -155,9 +155,11 @@ abstract class SetContent extends Set implements SetInterface
 			$this->git->setTarget($target_system);
 
 			// load the base and token if set
-			$target_system === 'gitea'
-				? $this->grep->loadApi($this->git, $repo->base ?? null, $repo->token ?? null)
-				: $this->grep->loadApi($this->git, null, $repo->token ?? null);
+			$this->grep->loadApi(
+				$this->git,
+				$repo->base ?? null,
+				$repo->token ?? null
+			);
 
 			try {
 				if (($existing = $this->grep->get($guid, ['remote'], $repo)) !== null)
@@ -249,7 +251,9 @@ abstract class SetContent extends Set implements SetInterface
 			$item->content, // The file content.
 			'Update ' . $item_name, // The commit message.
 			$sha, // The blob SHA of the old file.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 
 		$success = is_object($result);
@@ -279,7 +283,9 @@ abstract class SetContent extends Set implements SetInterface
 			$this->index_map_IndexSettingsPath($item), // The file path.
 			$item->content, // The file content.
 			'Create ' . $this->index_map_IndexName($item), // The commit message.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 
 		return is_object($result);

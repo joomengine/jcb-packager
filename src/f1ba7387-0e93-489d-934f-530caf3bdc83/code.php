@@ -9,7 +9,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace VDM\Joomla\Componentbuilder\Package\Remote;
+namespace VDM\Joomla\Componentbuilder\Remote;
 
 
 use Joomla\CMS\Language\Text;
@@ -27,7 +27,7 @@ use VDM\Joomla\Abstraction\Remote\Set as ExtendingSet;
 
 
 /**
- * Set package based on global unique ids to remote repository
+ * Set global unique ids to remote repository
  * 
  * @since 5.1.1
  */
@@ -92,7 +92,9 @@ class Set extends ExtendingSet implements SetInterface
 			json_encode($item, JSON_PRETTY_PRINT), // The file content.
 			'Update ' . $item_name, // The commit message.
 			$sha, // The blob SHA of the old file.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 
 		$success = is_object($result);
@@ -122,7 +124,9 @@ class Set extends ExtendingSet implements SetInterface
 			$this->index_map_IndexSettingsPath($item), // The file path.
 			json_encode($item, JSON_PRETTY_PRINT), // The file content.
 			'Create ' . ($this->index_map_IndexName($item) ?? $this->getArea()), // The commit message.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 
 		return is_object($result);
@@ -159,7 +163,9 @@ class Set extends ExtendingSet implements SetInterface
 			$this->itemReadme->get($item), // The file content.
 			'Update ' . ($this->index_map_IndexName($item) ?? $this->getArea()) . ' readme file', // The commit message.
 			$sha, // The blob SHA of the old file.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 	}
 
@@ -185,7 +191,9 @@ class Set extends ExtendingSet implements SetInterface
 			$this->index_map_IndexReadmePath($item), // The file path.
 			$this->itemReadme->get($item), // The file content.
 			'Create ' . ($this->index_map_IndexName($item) ?? $this->getArea()) . ' readme file', // The commit message.
-			$repo->write_branch // The branch name.
+			$repo->write_branch, // The branch name.
+			$repo->author_name, // The author name.
+			$repo->author_email // The author email.
 		);
 	}
 

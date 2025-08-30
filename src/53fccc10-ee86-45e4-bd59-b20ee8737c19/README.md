@@ -6,9 +6,11 @@
 @startuml
 
 class Item << (F,LightGreen) >> #RoyalBlue {
+  # array $tableNames
   + get(object $item) : string
   # getMainSourceLabel(int $value) : string
   # getGettypeLabel(int $value, string $custom) : string
+  # getMainTableName(object $item) : ?string
 }
 
 note right of Item::get
@@ -31,6 +33,15 @@ note right of Item::getGettypeLabel
 
   since: 5.1.1
   return: string
+end note
+
+note right of Item::getMainTableName
+  Retrieves the main table name for a given item.
+Resolves the table name directly if `view_table_main_name` is set,
+otherwise attempts to derive it via `view_table_main` and cache lookup.
+
+  since: 5.1.1
+  return: ?string
 end note
 
 @enduml

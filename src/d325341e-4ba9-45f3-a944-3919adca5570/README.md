@@ -11,6 +11,7 @@ class Resolver << (F,LightGreen) >> #RoyalBlue {
   # Tracker $tracker
   # Table $table
   # Load $load
+  # Items $items
   # array $parents
   # array $children
   # array $code
@@ -21,6 +22,7 @@ class Resolver << (F,LightGreen) >> #RoyalBlue {
   # array $placeholders
   # array $dependencies
   + __construct(Config $config, Normalize $normalize, ...)
+  + table(string $table) : self
   + extract(object $item) : ?array
   # getDependencies() : ?array
   # extractParents(object $item) : void
@@ -53,6 +55,8 @@ class Resolver << (F,LightGreen) >> #RoyalBlue {
   - setEntityFiles() : void
   - setEntityFolders() : void
   - setAliasMap() : void
+  - setGuid(int $id, string $table) : string
+  - getTable() : string
 }
 
 note right of Resolver::__construct
@@ -66,9 +70,17 @@ note right of Resolver::__construct
     Tracker $tracker
     Table $table
     Load $load
+    Items $items
 end note
 
-note left of Resolver::extract
+note left of Resolver::table
+  Set the current active table
+
+  since: 5.1.2
+  return: self
+end note
+
+note right of Resolver::extract
   Inspect an item and extract all the dependencies
 This method inspects the item and loads all dependencies
 
@@ -76,7 +88,7 @@ This method inspects the item and loads all dependencies
   return: ?array
 end note
 
-note right of Resolver::getDependencies
+note left of Resolver::getDependencies
   Return the relationships/dependencies of this given item object
 These relationships are used internally and are not part of the database schema.
 They are returned under the special '@dependencies' key to avoid accidental persistence.
@@ -85,7 +97,7 @@ They are returned under the special '@dependencies' key to avoid accidental pers
   return: ?array
 end note
 
-note left of Resolver::extractParents
+note right of Resolver::extractParents
   Inspects all fields with outgoing links (type 1) and records their dependencies.
 Handles both plain fields and sub-form paths (denoted by “|”).  Any value
 encountered is normalised to one-dimensional strings before recording.
@@ -94,21 +106,21 @@ encountered is normalised to one-dimensional strings before recording.
   return: void
 end note
 
-note right of Resolver::extractChildren
+note left of Resolver::extractChildren
   Extracts entities that depend on this item (incoming links)
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::extractDynamicContent
+note right of Resolver::extractDynamicContent
   Inspects all fields for dynamic linking content.
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::extractSubformFields
+note left of Resolver::extractSubformFields
   Extract subform field dependencies from an item.
 This method checks if the item is a subform field and, if so,
 extracts the referenced field GUIDs from its XML definition.
@@ -118,7 +130,7 @@ Each valid field reference is recorded as a parent dependency.
   return: void
 end note
 
-note left of Resolver::extractFiles
+note right of Resolver::extractFiles
   Extract files from entity
 This method checks if the item has files, if so,
 extracts the files from the entity based on the config details.
@@ -127,7 +139,7 @@ extracts the files from the entity based on the config details.
   return: void
 end note
 
-note right of Resolver::extractFolders
+note left of Resolver::extractFolders
   Extract folders from entity
 This method checks if the item has folders, if so,
 extracts the folders from the entity based on the config details.
@@ -136,35 +148,35 @@ extracts the folders from the entity based on the config details.
   return: void
 end note
 
-note left of Resolver::extractCustomCode
+note right of Resolver::extractCustomCode
   Process custom code function references from value.
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::extractTemplates
+note left of Resolver::extractTemplates
   Process template usages from value.
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::extractLayouts
+note right of Resolver::extractLayouts
   Process layout references from value.
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::extractPlaceholders
+note left of Resolver::extractPlaceholders
   Process placeholder targets from value.
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::getCustomCode
+note right of Resolver::getCustomCode
   Extracts custom code function names from a string value.
 Handles both direct names and numeric IDs, including parsing
 '+'-delimited forms where only the first token is used.
@@ -173,28 +185,28 @@ Handles both direct names and numeric IDs, including parsing
   return: array
 end note
 
-note right of Resolver::getTemplates
+note left of Resolver::getTemplates
   Extracts template names (GUIDs) from a string value.
 
   since: 5.1.1
   return: array
 end note
 
-note left of Resolver::getLayouts
+note right of Resolver::getLayouts
   Extracts layout names (GUIDs) from a string value.
 
   since: 5.1.1
   return: array
 end note
 
-note right of Resolver::getPlaceholders
+note left of Resolver::getPlaceholders
   Extracts placeholders from a string value.
 
   since: 5.1.1
   return: array
 end note
 
-note left of Resolver::normalizeToStringArray
+note right of Resolver::normalizeToStringArray
   Normalizes a raw field value into an array of strings.
 Accepts strings, arrays of strings, or Traversable of strings. Any invalid or
 non-scalar values are excluded.
@@ -203,7 +215,7 @@ non-scalar values are excluded.
   return: array
 end note
 
-note right of Resolver::normalizeToSubformArray
+note left of Resolver::normalizeToSubformArray
   Traverses an arbitrarily nested sub-form path and returns every value
 found as a clean string array.
 Example field path: "contacts|0|address|street".
@@ -214,14 +226,14 @@ Example field path: "contacts|0|address|street".
   return: array
 end note
 
-note left of Resolver::collectSubformValues
+note right of Resolver::collectSubformValues
   Recursively digs through the sub-form structure to harvest raw leaf values.
 
   since: 5.1.1
   return: array
 end note
 
-note right of Resolver::record
+note left of Resolver::record
   Records a  child/parent in the tracker.
 
   since: 5.1.1
@@ -235,21 +247,21 @@ note right of Resolver::record
     string $key
 end note
 
-note left of Resolver::recordFile
+note right of Resolver::recordFile
   Records a file in the tracker.
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::recordFolder
+note left of Resolver::recordFolder
   Records a folder in the tracker.
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::vaildDirectChild
+note right of Resolver::vaildDirectChild
   Check if this is a valid direct child dependencies
 
   since: 5.1.1
@@ -262,67 +274,81 @@ note left of Resolver::vaildDirectChild
     string $key
 end note
 
-note right of Resolver::validValue
+note left of Resolver::validValue
   Check if the given value is a valid entity key value.
 
   since: 5.1.1
   return: bool
 end note
 
-note left of Resolver::validGuid
+note right of Resolver::validGuid
   Validate the Globally Unique Identifier
 
   since: 5.1.1
   return: bool
 end note
 
-note right of Resolver::init
+note left of Resolver::init
   Initialize the resolver
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::setEntityParents
+note right of Resolver::setEntityParents
   Set all the linked fields (parents) of this table
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::setEntityChildren
+note left of Resolver::setEntityChildren
   Set all the dependencies (children) of this entity
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::setEntitySearchAreas
+note right of Resolver::setEntitySearchAreas
   Set all the related table search fields
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::setEntityFiles
+note left of Resolver::setEntityFiles
   Set all the related table files field names
 
   since: 5.1.1
   return: void
 end note
 
-note left of Resolver::setEntityFolders
+note right of Resolver::setEntityFolders
   Set all the related table folders field names
 
   since: 5.1.1
   return: void
 end note
 
-note right of Resolver::setAliasMap
+note left of Resolver::setAliasMap
   Load all alias and GUID's of template and layout tables
 
   since: 5.1.1
   return: void
+end note
+
+note right of Resolver::setGuid
+  Set GUID for an item.
+
+  since: 5.1.2
+  return: string
+end note
+
+note left of Resolver::getTable
+  Get the current active table
+
+  since: 5.1.2
+  return: string
 end note
 
 @enduml

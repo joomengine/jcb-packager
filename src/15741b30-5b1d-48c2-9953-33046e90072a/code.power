@@ -1,0 +1,23 @@
+	/**
+	 * Table Name
+	 *
+	 * @var    string
+	 * @since  5.1.1
+	 */
+	protected string $table = 'repository';
+
+	/**
+	 * Area Name
+	 *
+	 * @var   string|null
+	 * @since 5.1.1
+	 */
+	protected ?string $area = 'Repository';
+
+	/**
+	 * The ignore fields
+	 *
+	 * @var   array
+	 * @since  5.1.1
+	 */
+	protected array $ignore = ['token', 'access'];

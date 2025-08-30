@@ -1,0 +1,55 @@
+{
+    "add_head": 1,
+    "add_licensing_template": 2,
+    "extends": "",
+    "guid": "14c5bfcf-11ab-40c6-bbf9-4710306da647",
+    "implements": [
+        "-1"
+    ],
+    "load_selection": null,
+    "name": "Repository",
+    "power_version": "1.0.0",
+    "system_name": "JCB.Repository.Service.Repository",
+    "type": "class",
+    "use_selection": {
+        "use_selection0": {
+            "use": "4e3be01f-73c6-431d-854c-f3fb95647fd1",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "7709f0cc-eb07-4202-972f-cb323e897564",
+            "as": "default"
+        },
+        "use_selection2": {
+            "use": "15741b30-5b1d-48c2-9953-33046e90072a",
+            "as": "RemoteConfig"
+        },
+        "use_selection3": {
+            "use": "d325341e-4ba9-45f3-a944-3919adca5570",
+            "as": "default"
+        },
+        "use_selection4": {
+            "use": "3ab0eba9-f37b-4b37-aec1-2e78067f2aff",
+            "as": "default"
+        },
+        "use_selection5": {
+            "use": "f1ba7387-0e93-489d-934f-530caf3bdc83",
+            "as": "default"
+        },
+        "use_selection6": {
+            "use": "e65cc7f7-4275-480c-9e9e-aee5f233efe7",
+            "as": "ItemReadme"
+        },
+        "use_selection7": {
+            "use": "51b454e3-2389-4685-b8bb-c7d51f42ef4b",
+            "as": "MainReadme"
+        }
+    },
+    "extendsinterfaces": null,
+    "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Repository.Service.Repository",
+    "description": "Repository Service Provider\r\n\r\n@since  5.1.1",
+    "implements_custom": "ServiceProviderInterface",
+    "licensing_template": "\/**\r\n * @package    Joomla.Component.Builder\r\n *\r\n * @created    4th September, 2022\r\n * @author     Llewellyn van der Merwe <https:\/\/dev.vdm.io>\r\n * @git        Joomla Component Builder <https:\/\/git.vdm.dev\/joomla\/Component-Builder>\r\n * @copyright  Copyright (C) 2015 Vast Development Method. All rights reserved.\r\n * @license    GNU General Public License version 2 or later; see LICENSE.txt\r\n *\/\r\n",
+    "head": "use Joomla\\DI\\Container;\r\nuse Joomla\\DI\\ServiceProviderInterface;",
+    "composer": ""
+}

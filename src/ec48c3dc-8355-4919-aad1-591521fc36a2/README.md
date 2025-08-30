@@ -8,18 +8,9 @@
 
 class GrepContent  #Gold {
   # ?string $target
-  # array $order
-  # searchRemote(string $guid) : ?object
   # getRemote(object $path, string $guid) : ?object
   # setRemoteIndexMessage(string $message, string $path, ...) : void
 }
-
-note right of GrepContent::searchRemote
-  Search for a remote item
-
-  since: 5.1.1
-  return: ?object
-end note
 
 note right of GrepContent::getRemote
   Get a remote folder.zip from a repository.

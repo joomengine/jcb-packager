@@ -8,35 +8,8 @@
 
 class Grep << (F,LightGreen) >> #RoyalBlue {
   # ?string $target
-  # array $order
-  # searchRemote(string $guid) : ?object
-  # getRemote(object $path, string $guid) : ?object
-  # setDependencies(object $power) : void
   # setRemoteIndexMessage(string $message, string $path, ...) : void
 }
-
-note right of Grep::searchRemote
-  Search for a remote item
-
-  since: 5.1.1
-  return: ?object
-end note
-
-note right of Grep::getRemote
-  Get a remote package (item) object from a repository.
-
-  since: 5.1.1
-  return: ?object
-end note
-
-note right of Grep::setDependencies
-  Load dependency records into the tracker.
-This method supports each dependency item being either an object or an associative array.
-It verifies the presence of the `key`, `value`, and `entity` properties before adding them to the tracker.
-
-  since: 5.1.1
-  return: void
-end note
 
 note right of Grep::setRemoteIndexMessage
   Set repository messages and errors based on given conditions.

@@ -133,7 +133,10 @@
 	}
 
 	/**
-	 * Get the short description
+	 * Get the short description.
+	 *
+	 * Sanitizes and truncates the description to 20 words max, removes all HTML tags,
+	 * line breaks, and ensures a clean inline Markdown output.
 	 *
 	 * @param array  $power  The power details.
 	 *
@@ -143,7 +146,32 @@
 	private function linkPowerDesc(array &$power): string
 	{
 		$desc = $power['desc'] ?? $power['description'] ?? null;
-		return $desc
-			? ' | ' . $desc
-			: '';
+
+		if (is_string($desc) && trim($desc) !== '')
+		{
+			// Remove HTML tags
+			$desc = strip_tags($desc);
+
+			// Normalize whitespace (remove line breaks, tabs, multiple spaces)
+			$desc = preg_replace('/\s+/u', ' ', $desc);
+			$desc = trim($desc);
+
+			// Truncate to 20 words
+			$words = preg_split('/\s+/u', $desc);
+			if (count($words) > 20)
+			{
+				$desc = implode(' ', array_slice($words, 0, 25)) . '...';
+			}
+			else
+			{
+				$desc = implode(' ', $words);
+			}
+
+			// Assign cleaned/truncated value back for potential reuse
+			$power['desc'] = $desc;
+
+			return ' | ' . $desc;
+		}
+
+		return '';
 	}

@@ -18,8 +18,8 @@ use VDM\Joomla\Componentbuilder\Snippet\Config;
 use VDM\Joomla\Componentbuilder\Snippet\Grep;
 use VDM\Joomla\Componentbuilder\Snippet\Remote\Config as RemoteConfig;
 use VDM\Joomla\Componentbuilder\Package\Dependency\Resolver;
-use VDM\Joomla\Componentbuilder\Power\Remote\Get;
-use VDM\Joomla\Componentbuilder\Package\Remote\Set;
+use VDM\Joomla\Componentbuilder\Remote\Get;
+use VDM\Joomla\Componentbuilder\Remote\Set;
 use VDM\Joomla\Componentbuilder\Snippet\Builder\Entities;
 use VDM\Joomla\Componentbuilder\Package\Builder\Set as BuilderSet;
 use VDM\Joomla\Componentbuilder\Package\Builder\Get as BuilderGet;
@@ -156,7 +156,8 @@ class Snippet implements ServiceProviderInterface
 			$container->get('Utilities.Normalize'),
 			$container->get('Power.Tracker'),
 			$container->get('Power.Table'),
-			$container->get('Load')
+			$container->get('Load'),
+			$container->get('Data.Items')
 		);
 	}
 
@@ -325,7 +326,8 @@ class Snippet implements ServiceProviderInterface
 			$container->get('Utilities.Normalize'),
 			$container->get('Power.Tracker'),
 			$container->get('Power.Table'),
-			$container->get('Load')
+			$container->get('Load'),
+			$container->get('Data.Items')
 		);
 	}
 

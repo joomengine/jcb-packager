@@ -10,6 +10,7 @@ class Table << (F,LightGreen) >> #RoyalBlue {
   + parents(string $table) : array
   + children(string $entity, ?array $direct = null) : array
   + search(string $table, string $area) : array
+  + listViewCodeName(string $table) : ?string
   - traverseSubformParents(string $name, array $fields, ...) : void
   - traverseSubformChildren(string $table, string $name, ...) : void
   - isSubform(array $field) : bool
@@ -42,7 +43,15 @@ that hold all the fields to be searched in a specific area of JCB
   return: array
 end note
 
-note left of Table::traverseSubformParents
+note left of Table::listViewCodeName
+  Get the list view code name from a table's fields.
+This method returns the first field where the 'list' key is a non-empty string.
+
+  since: 5.1.2
+  return: ?string
+end note
+
+note right of Table::traverseSubformParents
   Recursively traverses subform fields to collect valid parent fields
 
   since: 5.1.1
@@ -54,7 +63,7 @@ note left of Table::traverseSubformParents
     $linked
 end note
 
-note right of Table::traverseSubformChildren
+note left of Table::traverseSubformChildren
   Recursively traverses subform fields to collect valid Children dependencies
 
   since: 5.1.1
@@ -68,21 +77,21 @@ note right of Table::traverseSubformChildren
     $result
 end note
 
-note left of Table::isSubform
+note right of Table::isSubform
   Validates that the given field represents a well-formed subform.
 
   since: 5.1.1
   return: bool
 end note
 
-note right of Table::isValidParent
+note left of Table::isValidParent
   Validates that the given field represents a well-formed outgoing/parent link.
 
   since: 5.1.1
   return: bool
 end note
 
-note left of Table::isValidChild
+note right of Table::isValidChild
   Validates that the provided link config represents a valid child dependency on the given entity.
 
   since: 5.1.1

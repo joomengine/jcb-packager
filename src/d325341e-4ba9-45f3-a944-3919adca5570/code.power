@@ -1,4 +1,11 @@
 	/**
+	 * The Globally Unique Identifier.
+	 *
+	 * @since 5.1.2
+	 */
+	use Guid;
+
+	/**
 	 * The Config Class.
 	 *
 	 * @var   Config
@@ -37,6 +44,14 @@
 	 * @since 5.1.1
 	 */
 	protected Load $load;
+
+	/**
+	 * The Items Class.
+	 *
+	 * @var   Items
+	 * @since 5.1.2
+	 */
+	protected Items $items;
 
 	/**
 	 * The parents fields.
@@ -111,6 +126,14 @@
 	protected array $alias_map = [];
 
 	/**
+	 * The Target Table name.
+	 *
+	 * @var   string
+	 * @since 5.1.2
+	 */
+	protected string $table_name;
+
+	/**
 	 * The current item dependencies map.
 	 *
 	 * @var   array
@@ -126,19 +149,36 @@
 	 * @param Tracker   $tracker   The Tracker Class.
 	 * @param Table     $table     The Table Class.
 	 * @param Load      $load      The Load Class.
+	 * @param Items     $items     The Items Class.
 	 *
 	 * @since 5.1.1
 	 */
 	public function __construct(Config $config, Normalize $normalize,
-		Tracker $tracker, Table $table, Load $load)
+		Tracker $tracker, Table $table, Load $load, Items $items)
 	{
 		$this->config = $config;
 		$this->normalize = $normalize;
 		$this->tracker = $tracker;
 		$this->table = $table;
 		$this->load = $load;
+		$this->items = $items;
 
 		$this->init();
+	}
+
+	/**
+	 * Set the current active table
+	 *
+	 * @param string $table The table that should be active
+	 *
+	 * @return self
+	 * @since  5.1.2
+	 */
+	public function table(string $table): self
+	{
+		$this->table_name = $table;
+
+		return $this;
 	}
 
 	/**
@@ -314,10 +354,10 @@
 
 			$this->record(
 				'parent',
-				'guid',
+				'field',
 				$field,
 				'#__[[[component]]]_field',
-				'field'
+				'guid'
 			);
 		}
 	}
@@ -545,7 +585,7 @@
 		$templates = [];
 
 		$temp1 = GetHelper::allBetween($value, "\$this->load" . "Template('", "')");
-		$temp2 = GetHelper::allBetween($value, '$this->load" . "Template("', '")');
+		$temp2 = GetHelper::allBetween($value, '$this->load' . 'Template("', '")');
 
 		if (!empty($temp1))
 		{
@@ -566,6 +606,7 @@
 				$guids[$guid] = $guid;
 			}
 		}
+
 		return array_values($guids);
 	}
 
@@ -582,10 +623,10 @@
 		$layouts = [];
 
 		$patterns = [
-			["Layout" . "Helper::render('", "',"],
-			['Layout' . 'Helper::render("', '",'],
-			["Joomla__" . "_7ab82272_0b3d_4bb1_af35_e63a096cfe0b___Power::render('", "',"],
-			['Joomla__' . '_7ab82272_0b3d_4bb1_af35_e63a096cfe0b___Power::render("', '",'],
+			["Layout" . "Helper::render('", "'"],
+			['Layout' . 'Helper::render("', '"'],
+			["Joomla__" . "_7ab82272_0b3d_4bb1_af35_e63a096cfe0b___Power::render('", "'"],
+			['Joomla__' . '_7ab82272_0b3d_4bb1_af35_e63a096cfe0b___Power::render("', '"'],
 		];
 
 		foreach ($patterns as [$start, $end])
@@ -1074,12 +1115,22 @@
 		// now check if key is found
 		foreach(['template', 'layout'] as $table)
 		{
-			$items = $this->load->items(['guid', 'alias'], [$table]);
+			$items = $this->load->items(['id', 'guid', 'alias'], [$table]);
 			if ($items !== null)
 			{
 				$this->alias_map[$table] = [];
 				foreach ($items as $item)
 				{
+					if (empty($item->alias))
+					{
+						continue;
+					}
+
+					if (empty($item->guid) || !$this->validateGuid($item->guid))
+					{
+						$item->guid = $this->setGuid($item->id, $table);
+					}
+
 					// build the key
 					$k_ey = StringHelper::safe($item->alias);
 					$key  = preg_replace("/[^A-Za-z]/", '', (string) $k_ey);
@@ -1091,4 +1142,33 @@
 				}
 			}
 		}
+	}
+
+	/**
+	 * Set GUID for an item.
+	 *
+	 * @param   int     $id
+	 * @param   string  $table
+	 *
+	 * @return  string  The guid that was set
+	 * @since   5.1.2
+	 */
+	private function setGuid($id, $table): string
+	{
+		$guid = $this->table($table)->getGuid('guid');
+
+		$this->items->table($table)->set([['id' => $id, 'guid' => $guid]], 'id');
+
+		return $guid;
+	}
+
+	/**
+	 * Get the current active table
+	 *
+	 * @return  string
+	 * @since   5.1.2
+	 */
+	private function getTable(): string
+	{
+		return $this->table_name;
 	}

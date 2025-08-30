@@ -1,0 +1,27 @@
+	/**
+	 * The Grep target [network]
+	 *
+	 * @var    string
+	 * @since  5.1.1
+	 **/
+	protected ?string $target = 'repository';
+
+	/**
+	 * Set repository messages and errors based on given conditions.
+	 *
+	 * @param string       $message       The message to set (if error)
+	 * @param string       $path          Path value
+	 * @param string       $repository    Repository name
+	 * @param string       $organisation  Organisation name
+	 * @param string|null  $base          Base URL
+	 *
+	 * @return void
+	 * @since  5.1.1
+	 */
+	protected function setRemoteIndexMessage(string $message, string $path, string $repository, string $organisation, ?string $base): void
+	{
+		$this->app->enqueueMessage(
+			Text::sprintf('<p>Repository</b> entity at <b>%s/%s</b> gave the following error!<br />%s</p>', $this->contents->api(), $path, $message),
+			'Error'
+		);
+	}

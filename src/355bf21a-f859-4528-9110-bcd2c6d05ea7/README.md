@@ -8,25 +8,8 @@
 
 class Grep << (F,LightGreen) >> #RoyalBlue {
   # ?string $target
-  # array $order
-  # searchRemote(string $guid) : ?object
-  # getRemote(object $path, string $guid) : ?object
   # setRemoteIndexMessage(string $message, string $path, ...) : void
 }
-
-note right of Grep::searchRemote
-  Search for a remote item
-
-  since: 3.2.0
-  return: ?object
-end note
-
-note right of Grep::getRemote
-  Get a remote joomla power object from a repository.
-
-  since: 5.1.1
-  return: ?object
-end note
 
 note right of Grep::setRemoteIndexMessage
   Set repository messages and errors based on given conditions.

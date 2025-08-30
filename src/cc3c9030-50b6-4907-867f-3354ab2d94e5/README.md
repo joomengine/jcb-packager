@@ -34,7 +34,7 @@ class Dependencies  #Gold {
   + getFileResolver(Container $container) : Resolver
   + getFileRemoteGet(Container $container) : GetFile
   + getFileRemoteSet(Container $container) : SetFile
-  + getGrepFolder(Container $container) : GrepContent
+  + getFolderGrep(Container $container) : GrepContent
   + getFolderRemoteConfig(Container $container) : Folder
   + getFolderResolver(Container $container) : Resolver
   + getFolderRemoteGet(Container $container) : GetFolder
@@ -237,7 +237,7 @@ note left of Dependencies::getFileRemoteSet
   return: SetFile
 end note
 
-note right of Dependencies::getGrepFolder
+note right of Dependencies::getFolderGrep
   Get The Grep Class.
 
   since: 5.1.1

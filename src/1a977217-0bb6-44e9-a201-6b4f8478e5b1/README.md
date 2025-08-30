@@ -10,6 +10,7 @@ interface TableInterface  #Lavender {
   + parents(string $table) : array
   + children(string $entity, ?array $direct = null) : array
   + search(string $table, string $area) : array
+  + listViewCodeName(string $table) : ?string
 }
 
 note right of TableInterface::parents
@@ -35,6 +36,14 @@ that hold all the fields to be searched in a specific area of JCB
 
   since: 5.1.0
   return: array
+end note
+
+note right of TableInterface::listViewCodeName
+  Get the list view code name from a table's fields.
+This method returns the first field where the 'list' key is a non-empty string.
+
+  since: 5.1.2
+  return: ?string
 end note
 
 @enduml

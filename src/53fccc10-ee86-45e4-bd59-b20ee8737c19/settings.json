@@ -11,7 +11,16 @@
     "power_version": "1.0.0",
     "system_name": "JCB.Package.DynamicGet.Readme.Item",
     "type": "final class",
-    "use_selection": null,
+    "use_selection": {
+        "use_selection0": {
+            "use": "30c5b4c2-f75f-4d15-869a-f8bfedd87358",
+            "as": "default"
+        },
+        "use_selection1": {
+            "use": "db87c339-5bb6-4291-a7ef-2c48ea1b06bc",
+            "as": "default"
+        }
+    },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.DynamicGet.Readme.Item",
     "description": "Compiler Dynamic Get Item Readme\r\n\r\n@since  5.1.1",

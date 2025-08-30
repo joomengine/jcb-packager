@@ -74,7 +74,9 @@ note left of Main::linkPowerSettings
 end note
 
 note right of Main::linkPowerDesc
-  Get the short description
+  Get the short description.
+Sanitizes and truncates the description to 20 words max, removes all HTML tags,
+line breaks, and ensures a clean inline Markdown output.
 
   since: 3.2.0
   return: string

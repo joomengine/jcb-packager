@@ -1,6 +1,6 @@
 ### JCB! Power
 # final class Get (Details)
-> namespace: **VDM\Joomla\Componentbuilder\Power\Remote**
+> namespace: **VDM\Joomla\Componentbuilder\Remote**
 > extends: **ExtendingGet**
 
 ```uml

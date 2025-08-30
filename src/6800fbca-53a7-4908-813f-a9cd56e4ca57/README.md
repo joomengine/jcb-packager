@@ -8,7 +8,7 @@
 
 class GetFile << (F,LightGreen) >> #RoyalBlue {
   # isLocal(string $fullPath) : bool
-  # store(object $item, ?string $fullPath = null) : bool
+  # store(string $content, string $fullPath) : bool
 }
 
 note right of GetFile::isLocal
@@ -19,7 +19,7 @@ note right of GetFile::isLocal
 end note
 
 note right of GetFile::store
-  Store the found file locally
+  Store the found content locally
 
   since: 5.1.1
   return: bool

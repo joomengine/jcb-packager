@@ -12,15 +12,44 @@
 	}
 
 	/**
-	 * Store the found file locally
+	 * Store the found content locally
 	 *
-	 * @param  object       $item      The file to store
-	 * @param  string|null  $fullPath  The full path to the file
+	 * @param  string   $content   The content to store (file data)
+	 * @param  string   $fullPath  The full path where the file should be restored
 	 *
-	 * @return bool
+	 * @return bool  True on success, false on failure
 	 * @since  5.1.1
 	 */
-	protected function store(object $item, ?string $fullPath = null): bool
+	protected function store(string $content, string $fullPath): bool
 	{
-		return false;
+		try
+		{
+			// Ensure the directory exists
+			$directory = dirname($fullPath);
+			if (!is_dir($directory) && !Folder::create($directory))
+			{
+				throw new \RuntimeException("Failed to create directory: {$directory}");
+			}
+
+			// If file exists, delete it
+			if (is_file($fullPath) && !File::delete($fullPath))
+			{
+				throw new \RuntimeException("Failed to delete existing file: {$fullPath}");
+			}
+
+			// Write file using FileHelper
+			if (!FileHelper::write($fullPath, $content))
+			{
+				throw new \RuntimeException("Failed to write file to: {$fullPath}");
+			}
+
+			return true;
+		}
+		catch (\Throwable $e)
+		{
+			$this->messages->add('error', Text::sprintf('System:Could not restore file to %s<br><br><b>Error Message</b>:<br>%s',
+				$fullPath, $e->getMessage()
+			));
+			return false;
+		}
 	}

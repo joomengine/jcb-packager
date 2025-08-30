@@ -1,0 +1,32 @@
+	/**
+	 * Package Container
+	 *
+	 * @var   Container|null
+	 * @since 5.1.1
+	 **/
+	protected static ?Container $container = null;
+
+	/**
+	 * Create a container object
+	 *
+	 * @return  Container
+	 * @since  5.1.1
+	 */
+	protected static function createContainer(): Container
+	{
+		return (new Container())
+			->registerServiceProvider(new Repository())
+			->registerServiceProvider(new Power())
+			->registerServiceProvider(new Database())
+			->registerServiceProvider(new Model())
+			->registerServiceProvider(new Data())
+			->registerServiceProvider(new Git())
+			->registerServiceProvider(new Github())
+			->registerServiceProvider(new GithubUtilities())
+			->registerServiceProvider(new Gitea())
+			->registerServiceProvider(new GiteaPower())
+			->registerServiceProvider(new GiteaUtilities())
+			->registerServiceProvider(new Api())
+			->registerServiceProvider(new Network())
+			->registerServiceProvider(new Utilities());
+	}

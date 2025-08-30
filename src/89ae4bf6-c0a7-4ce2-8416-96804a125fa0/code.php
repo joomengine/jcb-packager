@@ -17,8 +17,8 @@ use Joomla\DI\ServiceProviderInterface;
 use VDM\Joomla\Componentbuilder\Package\Grep;
 use VDM\Joomla\Componentbuilder\Package\Template\Remote\Config;
 use VDM\Joomla\Componentbuilder\Package\Dependency\Resolver;
-use VDM\Joomla\Componentbuilder\Power\Remote\Get;
-use VDM\Joomla\Componentbuilder\Package\Remote\Set;
+use VDM\Joomla\Componentbuilder\Remote\Get;
+use VDM\Joomla\Componentbuilder\Remote\Set;
 use VDM\Joomla\Componentbuilder\Package\Template\Readme\Item as ItemReadme;
 use VDM\Joomla\Componentbuilder\Package\Template\Readme\Main as MainReadme;
 
@@ -79,7 +79,8 @@ class Template implements ServiceProviderInterface
 			$container->get('Utilities.Normalize'),
 			$container->get('Power.Tracker'),
 			$container->get('Power.Table'),
-			$container->get('Load')
+			$container->get('Load'),
+			$container->get('Data.Items')
 		);
 	}
 

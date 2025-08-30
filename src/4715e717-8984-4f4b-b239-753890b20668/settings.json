@@ -1,7 +1,7 @@
 {
     "add_head": 1,
     "add_licensing_template": 2,
-    "extends": "1401a167-0ce4-4f4a-afee-2d8b02ed339b",
+    "extends": "98f69fd3-e051-401a-be36-8d03fa13e5f4",
     "guid": "4715e717-8984-4f4b-b239-753890b20668",
     "implements": [
         "c182506a-ab84-439c-b962-1e606b58d545"
@@ -11,7 +11,12 @@
     "power_version": "1.0.0",
     "system_name": "JCB.Package.Grep",
     "type": "final class",
-    "use_selection": null,
+    "use_selection": {
+        "use_selection0": {
+            "use": "98cd6e39-0c40-49dc-b28a-a154fba0fa0f",
+            "as": "default"
+        }
+    },
     "extendsinterfaces": null,
     "namespace": "[[[NamespacePrefix]]]\\Joomla\\[[[ComponentNamespace]]].Package.Grep",
     "description": "Global Resource Empowerment Platform\r\n\r\n   The Grep feature will try to find your power in the repositories\r\n   linked to this [area], and if it can't be found there will try the global core\r\n   Super Powers of JCB. All searches are performed according the [algorithm:cascading]\r\n   See documentation for more details: https:\/\/git.vdm.dev\/joomla\/super-powers\/wiki\r\n\r\n@since 5.1.1",

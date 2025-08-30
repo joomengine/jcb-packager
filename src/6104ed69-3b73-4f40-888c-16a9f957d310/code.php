@@ -78,7 +78,7 @@ final class Item implements ItemInterface
 
 			if (!empty($item->email))
 			{
-				$readme[] = "- [email](" . $item->email . ")";
+				$readme[] = "- [email](mailto:" . $item->email . ")";
 			}
 
 			if (!empty($item->website))
@@ -101,6 +101,7 @@ final class Item implements ItemInterface
 		$readme[] = '### Component Settings';
 		$readme[] = <<<MD
 | Setting                       | Value               |
+|-------------------------------|---------------------|
 | Add Custom Code Placeholders  | {$addPlaceholders}  |
 | Debug (line numbers)          | {$debugLineNumbers} |
 

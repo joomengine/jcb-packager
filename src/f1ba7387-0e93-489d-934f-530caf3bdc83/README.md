@@ -1,6 +1,6 @@
 ### JCB! Power
 # class Set (Details)
-> namespace: **VDM\Joomla\Componentbuilder\Package\Remote**
+> namespace: **VDM\Joomla\Componentbuilder\Remote**
 > extends: **ExtendingSet**
 
 ```uml

@@ -68,6 +68,7 @@ final class Item implements ItemInterface
 		$readme[] = '### Plugin Settings';
 		$readme[] = <<<MD
 | Setting                 | Value         |
+|-------------------------|---------------|
 | Add Custom Class Header | {$addHeaders} |
 | Add README              | {$addReadme}  |
 
@@ -100,7 +101,7 @@ MD;
 			$readme[] = '<summary>README Template</summary>';
 			$readme[] = '';
 			$readme[] = '```markdown';
-			$readme[] = $this->normilizeMarkdown($item->readme);
+			$readme[] = $this->normalizeMarkdown($item->readme);
 			$readme[] = '```';
 			$readme[] = '';
 			$readme[] = '</details>';

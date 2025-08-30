@@ -12,6 +12,8 @@
 namespace VDM\Joomla\Componentbuilder\Package\DynamicGet\Readme;
 
 
+use VDM\Joomla\Utilities\String\ClassfunctionHelper;
+use VDM\Joomla\Utilities\GetHelper;
 use VDM\Joomla\Interfaces\Readme\ItemInterface;
 
 
@@ -22,6 +24,14 @@ use VDM\Joomla\Interfaces\Readme\ItemInterface;
  */
 final class Item implements ItemInterface
 {
+	/**
+	 * The table name array
+	 *
+	 * @var    array
+	 * @since 5.1.1
+	 */
+	protected array $tableNames = [];
+
 	/**
 	 * Generate a README for a JCB Dynamic Get configuration.
 	 *
@@ -69,7 +79,8 @@ final class Item implements ItemInterface
 		}
 		elseif ($mainSource === 1)
 		{
-			$table     = 'Table: ' . ($item->view_table_main_name ?? $item->view_table_main ?? '[error] empty view table');
+			$view_table_main = $this->getMainTableName($item);
+			$table     = 'Table: ' . ($view_table_main ?? '[error] empty view table');
 			$selection = ($item->select_all ?? 0) == 1
 				? 'a.*'
 				: ($item->view_selection ?? 'error: empty view selection');
@@ -150,7 +161,7 @@ MD;
 	 */
 	protected function getGettypeLabel(int $value, string $custom): string
 	{
-		static $map = [
+		$map = [
 			1 => 'getItem',
 			2 => 'getListQuery',
 			3 => 'getCustom::' . $custom,
@@ -158,6 +169,49 @@ MD;
 		];
 
 		return $map[$value] ?? 'error: empty gettype';
+	}
+
+	/**
+	 * Retrieves the main table name for a given item.
+	 *
+	 * Resolves the table name directly if `view_table_main_name` is set,
+	 * otherwise attempts to derive it via `view_table_main` and cache lookup.
+	 *
+	 * @param  object  $item  The item containing table metadata.
+	 *
+	 * @return string|null  The resolved main table name or null if not determinable.
+	 * @since  5.1.1
+	 */
+	protected function getMainTableName(object $item): ?string
+	{
+		// Use explicitly set table name if available
+		if (!empty($item->view_table_main_name))
+		{
+			return $item->view_table_main_name;
+		}
+
+		$tableGuid = $item->view_table_main ?? null;
+
+		if (empty($tableGuid))
+		{
+			return null;
+		}
+
+		// Check if the name is already cached
+		if (isset($this->tableNames[$tableGuid]))
+		{
+			return $this->tableNames[$tableGuid];
+		}
+
+		// Resolve the name via helper and cache it
+		$resolvedName = GetHelper::var('admin_view', $tableGuid, 'guid', 'name_single') ?? $tableGuid;
+
+		if ($resolvedName !== $tableGuid)
+		{
+			$resolvedName = ClassfunctionHelper::safe($resolvedName);
+		}
+
+		return $this->tableNames[$tableGuid] = $resolvedName;
 	}
 }
 

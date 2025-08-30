@@ -17,8 +17,8 @@ use Joomla\DI\ServiceProviderInterface;
 use VDM\Joomla\Componentbuilder\Package\Grep;
 use VDM\Joomla\Componentbuilder\Package\Library\Remote\Config;
 use VDM\Joomla\Componentbuilder\Package\Dependency\Resolver;
-use VDM\Joomla\Componentbuilder\Power\Remote\Get;
-use VDM\Joomla\Componentbuilder\Package\Remote\Set;
+use VDM\Joomla\Componentbuilder\Remote\Get;
+use VDM\Joomla\Componentbuilder\Remote\Set;
 use VDM\Joomla\Componentbuilder\Package\Library\Readme\Item as ItemReadme;
 use VDM\Joomla\Componentbuilder\Package\Library\Readme\Main as MainReadme;
 use VDM\Joomla\Componentbuilder\Package\LibraryConfig\Remote\Config as LibraryConfig;
@@ -114,7 +114,8 @@ class Library implements ServiceProviderInterface
 			$container->get('Utilities.Normalize'),
 			$container->get('Power.Tracker'),
 			$container->get('Power.Table'),
-			$container->get('Load')
+			$container->get('Load'),
+			$container->get('Data.Items')
 		);
 	}
 
@@ -238,7 +239,8 @@ class Library implements ServiceProviderInterface
 			$container->get('Utilities.Normalize'),
 			$container->get('Power.Tracker'),
 			$container->get('Power.Table'),
-			$container->get('Load')
+			$container->get('Load'),
+			$container->get('Data.Items')
 		);
 	}
 
@@ -334,7 +336,8 @@ class Library implements ServiceProviderInterface
 			$container->get('Utilities.Normalize'),
 			$container->get('Power.Tracker'),
 			$container->get('Power.Table'),
-			$container->get('Load')
+			$container->get('Load'),
+			$container->get('Data.Items')
 		);
 	}
 

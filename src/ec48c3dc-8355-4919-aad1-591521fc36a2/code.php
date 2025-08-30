@@ -14,7 +14,7 @@ namespace VDM\Joomla\Componentbuilder\Package;
 
 use Joomla\CMS\Language\Text;
 use VDM\Joomla\Interfaces\GrepInterface;
-use VDM\Joomla\Abstraction\Grep;
+use VDM\Joomla\Componentbuilder\Remote\Grep;
 
 
 /**
@@ -36,33 +36,6 @@ class GrepContent extends Grep implements GrepInterface
 	 * @since  5.1.1
 	 **/
 	protected ?string $target = 'package';
-
-	/**
-	 * Order of global search
-	 *
-	 * @var    array
-	 * @since 5.1.1
-	 **/
-	protected array $order = ['remote'];
-
-	/**
-	 * Search for a remote item
-	 *
-	 * @param string    $guid    The global unique id of the item
-	 *
-	 * @return object|null
-	 * @since  5.1.1
-	 */
-	protected function searchRemote(string $guid): ?object
-	{
-		// check if it exists remotely
-		if (($path = $this->existsRemotely($guid)) !== null)
-		{
-			return $this->getRemote($path, $guid);
-		}
-
-		return null;
-	}
 
 	/**
 	 * Get a remote folder.zip from a repository.
@@ -90,7 +63,7 @@ class GrepContent extends Grep implements GrepInterface
 		// load the base and token if set
 		$this->loadApi(
 			$this->contents,
-			$target === 'gitea' ? ($path->base ?? null) : null,
+			$path->base ?? null,
 			$path->token ?? null
 		);
 

@@ -12,8 +12,9 @@ abstract GetContent  #Orange {
   + init(array $items, ?object $repo = null, ...) : array
   + reset(array $items) : bool
   + item(string $guid, array $order = ['remote', 'local'], ...) : bool
+  # extractItemValue(array|object $item, string $key) : mixed|null
   # {abstract} isLocal(string $fullPath) : bool
-  # {abstract} store(object $item, ?string $fullPath = null) : bool
+  # {abstract} store(string $content, string $fullPath) : bool
 }
 
 note right of GetContent::__construct
@@ -63,7 +64,7 @@ note right of GetContent::reset
 end note
 
 note right of GetContent::item
-  Load an item
+  Load an item using its GUID from the given repository or across all repositories.
 
   since: 3.2.0
   return: bool
@@ -72,6 +73,13 @@ note right of GetContent::item
     string $guid
     array $order = ['remote', 'local']
     ?object $repo = null
+end note
+
+note right of GetContent::extractItemValue
+  Extract a value from an array or object safely.
+
+  since: 5.1.2
+  return: mixed|null
 end note
 
 note right of GetContent::isLocal

@@ -8,7 +8,7 @@
 
 class GetFolder << (F,LightGreen) >> #RoyalBlue {
   # isLocal(string $fullPath) : bool
-  # store(object $item, ?string $fullPath = null) : bool
+  # store(string $content, string $fullPath) : bool
 }
 
 note right of GetFolder::isLocal
@@ -19,7 +19,7 @@ note right of GetFolder::isLocal
 end note
 
 note right of GetFolder::store
-  Store the found folder locally
+  Store the found content locally
 
   since: 5.1.1
   return: bool

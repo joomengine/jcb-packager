@@ -69,17 +69,17 @@
 			if (
 				!empty($name) &&
 				!in_array(strtolower($name), ['anon', 'anonymous']) &&
-				$name !== 'Llewellyn van der Merwe'
+				strtolower($name) !== 'llewellyn van der merwe'
 			) {
 				$readme[] = "- {$name}";
 			}
 
 			if (!empty($item->contributor_email)) {
-				$readme[] = "- [email](" . htmlspecialchars($item->contributor_email) . ")";
+				$readme[] = "- [email](mailto:" . $item->contributor_email . ")";
 			}
 
 			if (!empty($item->contributor_website)) {
-				$readme[] = "- [website](" . htmlspecialchars($item->contributor_website) . ")";
+				$readme[] = "- [website](" . $item->contributor_website . ")";
 			}
 
 			$readme[] = '';

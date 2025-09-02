@@ -834,6 +834,25 @@ final class Resolver implements ResolverInterface
 			$collected = $this->collectSubformValues($data->{$segment}, $path);
 		}
 
+		// ───────────────────────────────────────────────────────────
+		// DEEP SEEK HANDLING ;)
+		// ───────────────────────────────────────────────────────────
+		else
+		{
+			foreach ($data as $row)
+			{
+				if ((is_array($row) && array_key_exists($segment, $row)) ||
+					(is_object($row) && property_exists($row, $segment)))
+				{
+					$next = is_array($row) ? $row[$segment] : $row->{$segment};
+					$collected = array_merge(
+						$collected,
+						$this->collectSubformValues($next, $path)
+					);
+				}
+			}
+		}
+
 		return $collected;
 	}
 
